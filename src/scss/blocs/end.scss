@@ -1,0 +1,39 @@
+body {
+  width: 1286px;
+  height: 574px;
+  background-image: url(/src/assets/img/background_gameover.png);
+}
+
+.end {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end__title {
+  font-family: "Vermin Vibes 1989";
+  font-size: 170px;
+  color: black;
+  border: 3px solid #ffffff;
+  text-shadow: 0px 0px 15px #000000;
+}
+
+.end__score {
+  width: 550px;
+  height: 90px;
+  background-color: rgba(0, 0, 0, 0.36);
+}
+
+.end__btn {
+  background-color: red;
+  margin-top: 50px;
+  width: 380px;
+  height: 80px;
+  border-radius: 20px;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
