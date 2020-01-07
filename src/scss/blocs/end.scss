@@ -1,8 +1,3 @@
-// @font-face {
-//   font-family: "Vermin Vibes 1989";
-//   src: url("/src/assets/font/Vermin Vibes 1989.ttf") format("ttf");
-// }
-
 body {
   background-image: url(../assets/img/background_gameover.png);
   background-repeat: no-repeat;
@@ -23,6 +18,7 @@ body {
   font-size: 170px;
   color: white;
   text-shadow: 0px 0px 15px #000000;
+  animation: flash 1s infinite alternate;
 }
 
 .end__score {
@@ -41,7 +37,6 @@ body {
 .end__btn {
   background-color: white;
   margin-top: 50px;
-
   width: 380px;
   height: 80px;
   border-radius: 20px;
@@ -55,3 +50,16 @@ body {
     border: none;
   }
 }
+
+
+@keyframes flash {
+  from {
+    opacity: 0.6;
+    transform: scale(0.8, 0.8);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
