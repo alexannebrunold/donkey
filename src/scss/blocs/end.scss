@@ -1,10 +1,12 @@
 body {
-  width: 1286px;
-  height: 574px;
-  background-image: url(/src/assets/img/background_gameover.png);
+
+  background-image: url(../assets/img/background_gameover.png);
+  background-repeat: no-repeat;
 }
 
 .end {
+  width: 1286px;
+  height: 574px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,28 +14,42 @@ body {
 }
 
 .end__title {
+  margin-top: 10px;
   font-family: "Vermin Vibes 1989";
   font-size: 170px;
-  color: black;
-  border: 3px solid #ffffff;
+  color: white;
   text-shadow: 0px 0px 15px #000000;
 }
 
 .end__score {
   width: 550px;
   height: 90px;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, 0.548);
+}
+
+.end__btn {
+  background-color: white;
+  margin-top: 40px;
   background-color: rgba(0, 0, 0, 0.36);
 }
 
 .end__btn {
   background-color: red;
   margin-top: 50px;
+
   width: 380px;
   height: 80px;
   border-radius: 20px;
   text-decoration: none;
+
+
   a {
+    font-family: "Pixeled";
+    font-size: 20px;
     text-decoration: none;
     color: black;
+    border: none;
   }
 }
+
