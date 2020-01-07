@@ -22,7 +22,6 @@ body {
   font-family: "Vermin Vibes 1989";
   font-size: 170px;
   color: white;
-
   text-shadow: 0px 0px 15px #000000;
 }
 
@@ -36,6 +35,12 @@ body {
 .end__btn {
   background-color: white;
   margin-top: 40px;
+  background-color: rgba(0, 0, 0, 0.36);
+}
+
+.end__btn {
+  background-color: red;
+  margin-top: 50px;
   width: 380px;
   height: 80px;
   border-radius: 20px;
