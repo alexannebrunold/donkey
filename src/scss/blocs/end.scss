@@ -4,7 +4,6 @@
 // }
 
 body {
-
   background-image: url(../assets/img/background_gameover.png);
   background-repeat: no-repeat;
 }
@@ -40,14 +39,13 @@ body {
 }
 
 .end__btn {
-  background-color: red;
+  background-color: white;
   margin-top: 50px;
 
   width: 380px;
   height: 80px;
   border-radius: 20px;
   text-decoration: none;
-
 
   a {
     font-family: "Pixeled";
@@ -57,4 +55,3 @@ body {
     border: none;
   }
 }
-
