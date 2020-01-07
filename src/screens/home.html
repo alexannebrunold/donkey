@@ -7,18 +7,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="/scss/styles.scss" />
+  <link rel="stylesheet" href="/src/scss/styles.scss">
+  <link rel="stylesheet" href="/src/assets/font/Pixeled.ttf">
+  <link rel="stylesheet" href="/src/assets/font/Vermin Vibes 1989.ttf">
   <title>Home</title>
 </head>
 
 <body>
-  <h1>CYBER RUN</h1>
 
-  <p>Appuyer sur ENTREZ pour jouer</p>
+  <div class="home">
+    <h1 class="home__title">CYBER RUN</h1>
 
-  <a href="game.html">
-    <button>Comment jouer</button>
-  </a>
+    <a href="/src/screens/game.html" class="home__button">
+      <button class="home__play">Appuyer sur ENTREZ pour jouer</button>
+    </a>
+
+    <a href class="home__secondebbutton">
+      <button class="home_instructions">Comment jouer ?</button>
+    </a>
+  </div>
+
 </body>
 
 </html>
