@@ -3,6 +3,7 @@ body{
   background-repeat: no-repeat;
 }
 
+
 .home{
   width:1286px;
   height: 574px;
@@ -14,7 +15,7 @@ body{
   
 }
 .home__title{
-  font-family: 'Vermin Vibes 1989';
+  font-family: "Pixeled";
   font-size: 170px;
 }
 
@@ -28,17 +29,19 @@ body{
   margin-top:20px;
     
     background-color: #FF00C7;
-    width: 150px;
+    width: 170px;
     height: 55px;
     text-align: center;
     border: none;
     border-radius: 5px;
     p{
       font-size: 20px;
-      padding-top: 14.75px;
+      padding-top: 18px;
+      color: #ffffff;
+      text-align: center;
     }
    &:hover{
-      background-color: blue;
+      background-color: black;
     }
   }
 
