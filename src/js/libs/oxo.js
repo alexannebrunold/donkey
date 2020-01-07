@@ -50,7 +50,7 @@ window.oxo = {
         });
 
         if (
-          !oxo.elements.obstacles.every(function(obstacle) {
+          !oxo.elements.obstacles.every(function (obstacle) {
             return (
               obstacle == element ||
               !oxo.elements.elementsAreColliding(
@@ -180,7 +180,7 @@ window.oxo = {
       var pressed = [];
       var pixels = speed > 100 ? Math.round(speed / 100) : 1;
 
-      document.addEventListener('keydown', function(event) {
+      document.addEventListener('keydown', function (event) {
         if (event.key.indexOf('Arrow') === 0) {
           var direction = event.key.replace('Arrow', '').toLowerCase();
 
@@ -188,8 +188,8 @@ window.oxo = {
             pressed.push(direction);
 
             if (!interval) {
-              interval = setInterval(function() {
-                window.requestAnimationFrame(function() {
+              interval = setInterval(function () {
+                window.requestAnimationFrame(function () {
                   if (pressed.length) {
                     oxo.animation.move(
                       element,
@@ -205,7 +205,7 @@ window.oxo = {
         }
       });
 
-      document.addEventListener('keyup', function(event) {
+      document.addEventListener('keyup', function (event) {
         if (event.key.indexOf('Arrow') === 0) {
           var direction = event.key.replace('Arrow', '').toLowerCase();
 
@@ -230,7 +230,7 @@ window.oxo = {
       var element = document.createElement(params.type ? params.type : 'div');
 
       if (params.class) {
-        params.class.split(' ').forEach(function(className) {
+        params.class.split(' ').forEach(function (className) {
           element.classList.add(className);
         });
       }
@@ -278,8 +278,8 @@ window.oxo = {
      */
     onLeaveScreen(element, action, completly, once) {
       var observer = new IntersectionObserver(
-        function(entries) {
-          entries.forEach(function(entry) {
+        function (entries) {
+          entries.forEach(function (entry) {
             if (!entry.isIntersecting) {
               action();
 
@@ -322,7 +322,7 @@ window.oxo = {
     onCollisionWithElement(element, target, action, once) {
       var colliding = false;
 
-      var interval = setInterval(function() {
+      var interval = setInterval(function () {
         if (
           oxo.elements.elementsAreColliding(
             element.getBoundingClientRect(),
@@ -438,7 +438,7 @@ window.oxo = {
      * @param {Function} action - The action to execute
      */
     listenKeys(keys, action) {
-      keys.forEach(function(key) {
+      keys.forEach(function (key) {
         oxo.inputs.listenKey(key, action);
       });
     },
@@ -473,7 +473,7 @@ window.oxo = {
      * @param {Array<string>} - The keys to stop listening to
      */
     cancelKeysListeners(keys) {
-      keys.forEach(function(key) {
+      keys.forEach(function (key) {
         oxo.inputs.cancelKeysListener(key);
       });
     },
@@ -487,7 +487,7 @@ window.oxo = {
      * This method will be executed on initialization to listen all the keys
      */
     listenAllKeys() {
-      document.addEventListener('keydown', function(event) {
+      document.addEventListener('keydown', function (event) {
         listener = oxo.inputs.keysListeners[event.keyCode];
         if (listener) {
           listener.action();
@@ -507,9 +507,9 @@ window.oxo = {
     getDirectionFromPressedKeys(pressed) {
       var direction = pressed[0];
 
-      ['left-up', 'left-down', 'right-up', 'right-down'].forEach(function(dir) {
+      ['left-up', 'left-down', 'right-up', 'right-down'].forEach(function (dir) {
         if (
-          dir.split('-').every(function(dirPart) {
+          dir.split('-').every(function (dirPart) {
             return pressed.indexOf(dirPart) > -1;
           })
         ) {
@@ -588,9 +588,9 @@ window.oxo = {
      * @return {Promise} - The fetch promise
      */
     loadScreen(name, action) {
-      return fetch('../../screens/' + name + '.html').then(function(response) {
+      return fetch('../../screens/' + name + '.html').then(function (response) {
         if (response.ok) {
-          response.text().then(function(html) {
+          response.text().then(function (html) {
             document.body.innerHTML = html;
             document.body.setAttribute('class', name);
             oxo.log('Load screen ' + name);

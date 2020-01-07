@@ -1,16 +1,47 @@
 body{
-  background-image:url(/src/assets/img/cyberpunhomepagegif.png);
-  background-repeat: no-repeat;  
+  background-image: url(../assets/img/cyberpunhomepagegif.png);
+  background-repeat: no-repeat;
 }
 
-//HOME
-
-.div{
-
+.home{
+  width:1286px;
+  height: 574px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  
 }
-
-//Title 
-
 .home__title{
-  font-family: ;
+  font-family: 'Vermin Vibes 1989';
+  font-size: 170px;
 }
+
+.home__play{
+  font-size: 40px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.home__instructions{
+  margin-top:20px;
+    
+    background-color: #FF00C7;
+    width: 150px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    p{
+      font-size: 20px;
+      padding-top: 14.75px;
+    }
+   &:hover{
+      background-color: blue;
+    }
+  }
+
+  
+
+
