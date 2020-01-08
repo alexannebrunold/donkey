@@ -7,6 +7,18 @@ y = 120;
 x_obst = 1268;
 speed = 0;
 
+x_fg1 = 0;
+w_fg1 = 1286;
+
+x_fg2 = 1286;
+w_fg2 = 1400;
+
+x_bg1 = 0;
+w_bg1 = 1286;
+
+x_bg2 = 1286;
+w_bg2 = 1422;
+
 oxo.inputs.listenKeyOnce("enter", function () {
   oxo.screens.loadScreen("game", function () {
     var character = document.querySelector('.player');
@@ -80,9 +92,37 @@ oxo.inputs.listenKeyOnce("enter", function () {
     var obst = document.querySelector('.obstacle1');
     x_obst -= 10*speed;
     obst.style.left = x_obst + "px";
-    speed += 0.005;
     if (x_obst <= -20) {
       x_obst = 1268;
     }
+    // Parallax
+    var foreground1 = document.querySelector('.foreground-1');
+    var foreground2 = document.querySelector('.foreground-2');
+
+    x_fg1 -= 7*speed;
+    x_fg2 -= 7*speed;
+    foreground1.style.left = x_fg1 + "px";
+    foreground2.style.left = x_fg2 + "px";
+    if (x_fg1 <= -1286) {
+      x_fg1 = x_fg2 + w_fg2;
+    }
+    if (x_fg2 <= -1400) {
+      x_fg2 = x_fg1 + w_fg1;
+    }
+
+    var background1 = document.querySelector('.background-1');
+    var background2 = document.querySelector('.background-2');
+
+    x_bg1 -= 3*speed;
+    x_bg2 -= 3*speed;
+    background1.style.left = x_bg1 + "px";
+    background2.style.left = x_bg2 + "px";
+    if (x_bg1 <= -1286) {
+      x_bg1 = x_bg2 + w_bg2;
+    }
+    if (x_bg2 <= -1400) {
+      x_bg2 = x_bg1 + w_bg1;
+    }
+    speed += 0.005;
   }, 50);
 });
