@@ -1,9 +1,3 @@
-window.addEventListener("keypress", e => {
-  if (e.which === 13) {
-    oxo.screens.loadScreen("game");
-  }
-});
-
 var isJumping = false;
 var posJumping = 0;
 var jumpList = [44, 22, 11, 11, -11, -11, -22, -44];
