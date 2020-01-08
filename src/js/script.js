@@ -26,12 +26,12 @@ oxo.inputs.listenKeyOnce("enter", function () {
       ennemy.style.left = x_obst + "px";
     }, 50);
 
-    oxo.elements.onCollisionWithElement(player, obstacle1, function () {
-      // Character is touched by ennemy
-      //If player is touched by obstacle1 --> open  end page 
+    //Collision
+    oxo.elements.onCollisionWithElement(character, ennemy, function () {
       oxo.screens.loadScreen("end");
     });
   });
+
   oxo.inputs.listenKey("space", function () {
     if (oxo.screens.getCurrentScreen() == "game") {
       if (!isJumping) {
@@ -50,5 +50,5 @@ oxo.inputs.listenKeyOnce("enter", function () {
 
 });
 
-//Collision
+
 
