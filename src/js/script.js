@@ -11,10 +11,9 @@ oxo.inputs.listenKeyOnce('enter', function() {
 
 
 oxo.inputs.listenKey('space', function() {
-    console.log('espace');
     if (oxo.screens.getCurrentScreen() == 'game') {
         if (!isJumping) {
-            console.log('jump !');
+            console.log(vobstacle1.left);
             isJumping = true;
         }
     }
@@ -39,6 +38,8 @@ setInterval(function doGame() {
             isJumping = false;
             posJumping = 0;
         }
-    } 
+    }
+    vobstacle1 = document.querySelector('.obstacle1');
+    //vobstacle
 }, 50);
 

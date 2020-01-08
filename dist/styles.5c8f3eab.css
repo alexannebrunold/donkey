@@ -142,11 +142,22 @@ body {
 
 .player {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 72px;
+  height: 106px;
   left: 120px;
   bottom: 120px;
-  background: red; }
+  content: url(/player-img.002d5ff8.png); }
+
+.obstacle1 {
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  left: 1286px;
+  bottom: 120px;
+  background: red;
+  opacity: 0; }
+  .obstacle1.visible {
+    opacity: 1; }
 
 
 /*# sourceMappingURL=/styles.5c8f3eab.css.map */

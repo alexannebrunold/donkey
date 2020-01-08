@@ -127,11 +127,9 @@ oxo.inputs.listenKeyOnce('enter', function () {
   oxo.screens.loadScreen('game');
 });
 oxo.inputs.listenKey('space', function () {
-  console.log('espace');
-
   if (oxo.screens.getCurrentScreen() == 'game') {
     if (!isJumping) {
-      console.log('jump !');
+      console.log(vobstacle1.left);
       isJumping = true;
     }
   }
@@ -157,6 +155,9 @@ setInterval(function doGame() {
       posJumping = 0;
     }
   }
+
+  vobstacle1 = document.querySelector('.obstacle1');
+  vobstacle;
 }, 50);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -186,7 +187,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65425" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51656" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

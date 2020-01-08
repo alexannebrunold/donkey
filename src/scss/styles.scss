@@ -19,10 +19,25 @@
 
 .player {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 72px;
+    height: 106px;
     left: 120px;
     bottom: 120px;
+    //background: red;
+    content:url(img/player-img.png);
+}
+
+.obstacle1 {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    left: 1286px;
+    bottom: 120px;
     background: red;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+    }
 }
 
