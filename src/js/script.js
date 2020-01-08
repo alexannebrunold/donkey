@@ -3,5 +3,3 @@ window.addEventListener("keypress", (e) => {
     oxo.screens.loadScreen('game');
   }
 })
-
-
