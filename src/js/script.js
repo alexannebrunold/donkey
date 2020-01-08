@@ -1,3 +1,5 @@
+
+
 var isJumping = false;
 var posJumping = 0;
 var jumpList = [44, 22, 11, 11, -11, -11, -22, -44];
@@ -39,3 +41,4 @@ setInterval(function doGame() {
   vobstacle1 = document.querySelector(".obstacle1");
   //vobstacle
 }, 50);
+
