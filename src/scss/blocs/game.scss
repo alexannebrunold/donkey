@@ -1,0 +1,38 @@
+.background {
+  position: relative;
+  width: 1286px;
+  height: 574px;
+  background: green;
+}
+
+.ground {
+  position: absolute;
+  width: 1286px;
+  height: 120px;
+  bottom: 0;
+  background: blue;
+}
+
+.player {
+  position: absolute;
+  width: 72px;
+  height: 106px;
+  left: 120px;
+  bottom: 120px;
+  //background: red;
+  content: url(img/player-img.png);
+}
+
+.obstacle1 {
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  left: 1286px;
+  bottom: 120px;
+  background: red;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+  }
+}
