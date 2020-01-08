@@ -1,3 +1,28 @@
 @import 'vendors/reset';
 
 @import 'global/layout';
+
+.background {
+    position: relative;
+    width: 1286px;
+    height: 574px;
+    background: green;
+}
+
+.ground {
+    position: absolute;
+    width: 1286px;
+    height: 120px;
+    bottom: 0;
+    background: blue;
+}
+
+.player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 120px;
+    bottom: 120px;
+    background: red;
+}
+
