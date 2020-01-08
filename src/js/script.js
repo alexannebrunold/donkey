@@ -1,8 +1,11 @@
+
+
 var isJumping = false;
 var posJumping = 0;
 var jumpList = [44, 22, 11, 11, -11, -11, -22, -44];
 x = 120;
 y = 120;
+
 
 oxo.inputs.listenKeyOnce("enter", function() {
   oxo.screens.loadScreen("game");
@@ -11,7 +14,6 @@ oxo.inputs.listenKeyOnce("enter", function() {
 oxo.inputs.listenKey("space", function() {
   if (oxo.screens.getCurrentScreen() == "game") {
     if (!isJumping) {
-      console.log(vobstacle1.left);
       isJumping = true;
     }
   }
