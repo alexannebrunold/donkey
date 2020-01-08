@@ -29,28 +29,28 @@ body {
 }
 
 .end__btn {
-  background-color: white;
-  margin-top: 40px;
-  background-color: rgba(0, 0, 0, 0.36);
-}
-
-.end__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   margin-top: 50px;
   width: 380px;
   height: 80px;
   border-radius: 20px;
   text-decoration: none;
+  font-family: "Pixeled";
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  border: 5px solid white;
+  transition: color 2s;
 
-  a {
-    font-family: "Pixeled";
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-    border: none;
+  &:hover {
+    border: 5px solid white;
+
+    color: white;
   }
 }
-
 
 @keyframes flash {
   from {
@@ -62,4 +62,3 @@ body {
     transform: none;
   }
 }
-
