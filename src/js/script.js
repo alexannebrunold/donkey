@@ -64,8 +64,14 @@ oxo.inputs.listenKeyOnce("enter", function () {
 
         affichageScore.innerHTML = "Score :" + " " + value;
         var rejouer = document.querySelector(".end__btn");
-        rejouer.addEventListener("click", function () {
-          oxo.screens.loadScreen("game", function () { });
+        rejouer.addEventListener("click", function() {
+          oxo.screens.loadScreen("game", function() {});
+        });
+        
+        //Click go to home page
+        var home = document.querySelector(".end__btn--home");
+        home.addEventListener("click", function() {
+          oxo.screens.loadScreen("home", function() {});
         });
         //Click go to home page
         var home = document.querySelector(".end__btn--home");
@@ -77,7 +83,9 @@ oxo.inputs.listenKeyOnce("enter", function () {
   });
 });
 
+
 oxo.inputs.listenKey("space", function () {
+
   if (oxo.screens.getCurrentScreen() == "game") {
     if (!isJumping) {
       isJumping = true;
@@ -141,8 +149,10 @@ setInterval(function doGame() {
   speed += 0.005;
 }, 50);
 
+
 oxo.screens.loadScreen("home", function () {
->>>>>>> 0af3a363427ceb50ac1b4a86821be2b892d80201
+
+
   var btnHowToPlay = document.getElementById("btnHowToPlay");
   var instructions = document.getElementById("instructions");
   var instructionsClose = document.getElementById("close");
@@ -150,7 +160,9 @@ oxo.screens.loadScreen("home", function () {
   btnHowToPlay.addEventListener("click", function () {
     instructions.classList.toggle("is-open");
 
+
     instructionsClose.addEventListener("click", function () {
+
       instructions.classList.remove("is-open");
     });
   });
