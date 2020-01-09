@@ -11,7 +11,10 @@ body.home {
 
 @font-face {
   font-family: "Vermin VIbes 1989";
-  src: url("/font/Vermin\ Vibes\ 1989.ttf") format("truetype"),
+
+  
+  src: url("/font/Vermin\ Vibes\ 1989.ttf") format("ttf"),
+
     url("/font/Vermin\ Vibes\ 1989.ttf") format("truetype");
 }
 
@@ -56,13 +59,18 @@ body.home {
 }
 
 .home__instructions {
-  margin-top: 65px;
+  margin-top: 60px;
   background-color: #ff00c7;
   width: 245px;
   height: 55px;
   text-align: center;
   border: none;
   border-radius: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
   p {
     font-size: 12px;
     padding-top: 20.5px;
@@ -71,7 +79,17 @@ body.home {
     font-family: "Pixeled";
     text-align: center;
   }
-  &:hover {
-    background-color: black;
+
+.home__howToPlay {
+  position: absolute;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  // opacity: 0;
+  visibility: hidden;
+  transition: opacity 2s;
+
+  img {
+    max-width: 80%;
   }
 }
+
+.is-open 

@@ -1,7 +1,7 @@
-// body {
-//   background-image: url(../assets/img/background_gameover.png);
-//   background-repeat: no-repeat;
-// }
+body.end {
+  background-image: url(../assets/img/background_gameover.png);
+  background-repeat: no-repeat;
+}
 
 .end {
   width: 1286px;
@@ -13,43 +13,11 @@
 }
 
 .end__title {
-  margin-top: 10px;
   font-family: "Vermin Vibes 1989";
   font-size: 170px;
   color: white;
   text-shadow: 0px 0px 15px #000000;
   animation: flash 1s infinite alternate;
-}
-
-.end__score {
-  width: 550px;
-  height: 90px;
-  margin-top: 30px;
-  background-color: rgba(0, 0, 0, 0.548);
-}
-
-.end__btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  margin-top: 50px;
-  width: 380px;
-  height: 80px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-family: "Pixeled";
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
-  border: 5px solid white;
-  transition: color 2s;
-
-  &:hover {
-    border: 5px solid white;
-
-    color: white;
-  }
 }
 
 @keyframes flash {
@@ -61,4 +29,49 @@
     opacity: 1;
     transform: none;
   }
+}
+
+.end__score {
+  width: 550px;
+  height: 90px;
+
+  background-color: rgba(0, 0, 0, 0.548);
+}
+
+.end__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-top: 40px;
+  width: 350px;
+  height: 60px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: "Pixeled";
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  transition: color 2s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: black;
+    border: none;
+    color: white;
+  }
+}
+
+.end__btn--home {
+  margin-top: 20px;
+}
+
+//Score
+
+.affichageScore {
+  font-size: 25px;
+  font-family: "Pixeled";
+  text-align: center;
+  padding-top: 27px;
+  color: white;
 }

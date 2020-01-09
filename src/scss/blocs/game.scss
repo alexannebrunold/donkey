@@ -50,8 +50,64 @@
   animation: moveBall 2s forwards;
 }
 
+
 @keyframes moveBall {
   to {
     left: 1500px;
   }
+}
+.foreground-1 {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 1286px;
+  height: 469px;
+  content: url(../assets/img/foreground-1.png);
+}
+
+.foreground-2 {
+  position: absolute;
+  left: 1286px;
+  bottom: 0px;
+  width: 1420px;
+  height: 469px;
+  content: url(../assets/img/foreground-2.png);
+}
+
+.background-1 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1286px;
+  height: 490px;
+  content: url(../assets/img/background-1.jpg);
+}
+
+.background-2 {
+  position: absolute;
+  left: 1286px;
+  top: 0px;
+  width: 1422px;
+  height: 490px;
+  content: url(../assets/img/background-2.jpg);
+}
+
+.mask {
+  position: absolute;
+  width: 100vw;
+  height: 574px;
+  left: 1286px;
+  background-color: white;
+}
+
+//Score
+.affichageScore__game {
+  position: absolute;
+  font-size: 20px;
+  font-family: "Pixeled";
+  padding-top: 35px;
+  margin-right: 35px;
+  right: 0;
+  color: #000000;
+
 }
