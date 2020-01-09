@@ -161,6 +161,7 @@ oxo.screens.loadScreen("home", function () {
   });
 
 
+
 });
 
 /*
@@ -230,5 +231,6 @@ x_obst -= 10 * speed;
   */
 
 
-});
+
+
 
