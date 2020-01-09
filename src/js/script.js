@@ -92,32 +92,11 @@ let doGameInterval;
 function resetValues() {
   isJumping = false;
   posJumping = 0;
-<<<<<<< HEAD
-  jumpList = [
-    40,
-    30,
-    30,
-    20,
-    20,
-    10,
-    10,
-    10,
-    -10,
-    -10,
-    -10,
-    -20,
-    -20,
-    -30,
-    -30,
-    -40
-  ];
-=======
   jumpList = [40, 30, 30, 20, 20, 10, 10, 10, -10, -10, -10, -20, -20, -30, -30, -40];
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
   value = 0;
   x = 120;
   y = 120;
-  x_obst = 1306;
+  x_obst = 1206;
 
   x_fg1 = 0;
   w_fg1 = 1286;
@@ -140,22 +119,15 @@ function resetValues() {
   interval_ms = 50;
 }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 // ENTER GAME
 oxo.inputs.listenKeyOnce("enter", function startGame() {
   resetValues();
 
   reduceInterval = setInterval(function () {
     interval_ms -= 0.5;
-<<<<<<< HEAD
-  }, 500);
-=======
   }, 500)
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 
   oxo.screens.loadScreen("game", function () {
     var character = document.querySelector(".player");
@@ -164,47 +136,15 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     // potion = document.querySelector(".potion");
 
     /// TRUCS QUI BOUGENT ///
-    x_obst -= 10 * speed;
-    obst.style.left = x_obst + "px";
-    speed += 0.005;
-    if (x_obst <= -20) {
-      x_obst = 1268;
-      obst.classList.remove("destroyed");
-    }
 
-    oxo.inputs.listenKey("enter", function() {
-      i++;
-      if (i < 3) {
-        let ball = oxo.elements.createElement({
-          class: "ball",
-          appendTo: ".background"
-        });
-      }
-
-      oxo.elements.onLeaveScreenOnce(ball, function() {
-        ball.remove();
-      });
-
-      oxo.elements.onCollisionWithElementOnce(ball, obst, function() {
-        obst.classList.add("destroyed");
-      });
-    });
     function name() {
-<<<<<<< HEAD
-      var obst = document.querySelector(".obstacle1");
-=======
       var obst = document.querySelector('.obstacle1');
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
       x_obst -= 10;
       obst.style.left = x_obst + "px";
       if (x_obst <= -20) {
         value++;
         x_obst = 1268;
       }
-<<<<<<< HEAD
-      var foreground1 = document.querySelector(".foreground-1");
-      var foreground2 = document.querySelector(".foreground-2");
-=======
 
       var ground1 = document.querySelector('.ground-1');
       var ground2 = document.querySelector('.ground-2');
@@ -222,7 +162,6 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
 
       var foreground1 = document.querySelector('.foreground-1');
       var foreground2 = document.querySelector('.foreground-2');
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 
       x_fg1 -= 7;
       x_fg2 -= 7;
@@ -235,13 +174,8 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
         x_fg2 = x_fg1 + w_fg1;
       }
 
-<<<<<<< HEAD
-      var background1 = document.querySelector(".background-1");
-      var background2 = document.querySelector(".background-2");
-=======
       var background1 = document.querySelector('.background-1');
       var background2 = document.querySelector('.background-2');
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 
       x_bg1 -= 3;
       x_bg2 -= 3;
@@ -256,7 +190,7 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
       setTimeout(name, interval_ms);
     }
 
-    name();
+    name()
 
     /// NE PAS TOUCHER ///
 
@@ -270,16 +204,14 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
         if (posJumping == jumpList.length) {
           isJumping = false;
           posJumping = 0;
-<<<<<<< HEAD
-=======
 
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
         }
       }
 
       var inGameScore = document.querySelector(".affichageScore__game");
       inGameScore.innerHTML = value;
       affichageScore.innerHTML = value;
+
     }, interval_ms);
 
     //Collision
@@ -304,30 +236,32 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
   },50)*/
 
     oxo.elements.onCollisionWithElement(character, ennemy, function dead() {
-      oxo.screens.loadScreen("end", function() {
+      oxo.screens.loadScreen("end", function () {
         clearInterval(doGameInterval);
-        clearInterval(reduceInterval);
-        var affichageScore = document.querySelector(".affichageScore");
+        clearInterval(reduceInterval)
+        var affichageScore = document.querySelector('.affichageScore');
         affichageScore.innerHTML = "Score : " + value;
         var rejouer = document.querySelector(".end__btn");
-        rejouer.addEventListener("click", function() {
+        rejouer.addEventListener("click", function () {
           clearInterval(doGameInterval);
           clearInterval(reduceInterval);
-          startGame();
+          startGame()
         });
         //Click go to home page
         var home = document.querySelector(".end__btn--home");
-        home.addEventListener("click", function() {
-          oxo.screens.loadScreen("home", function() {});
+        home.addEventListener("click", function () {
+          oxo.screens.loadScreen("home", function () { });
           clearInterval(doGameInterval);
           clearInterval(reduceInterval);
         });
+
       });
     });
   });
 });
 
-oxo.inputs.listenKey("space", function() {
+
+oxo.inputs.listenKey("space", function () {
   if (oxo.screens.getCurrentScreen() == "game") {
     if (!isJumping) {
       isJumping = true;
@@ -335,10 +269,11 @@ oxo.inputs.listenKey("space", function() {
   }
 });
 
+
 function placePlayer(x_player, y_player) {
   var d = document.querySelector(".player");
   d.style.position = "absolute";
-  d.style.left = x_player + "px";
+  //d.style.left = x_player + "px";
   d.style.bottom = y_player + "px";
 }
 
@@ -368,17 +303,11 @@ oxo.screens.loadScreen("home", function () {
     instructions.classList.toggle("is-open");
   });
 
-<<<<<<< HEAD
-  instructionsClose.addEventListener("click", function() {
-    instructions.classList.remove("is-open");
-  });
-=======
 
   instructionsClose.addEventListener("click", function () {
     instructions.classList.remove("is-open");
   });
 
->>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 });
 
 /*
