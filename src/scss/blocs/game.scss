@@ -15,12 +15,15 @@
 
 .player {
   position: absolute;
-  width: 100px;
-  height: 90px;
+  width: 60px;
+  height: 100px;
   left: 120px;
   bottom: 120px;
-  content: url(../assets/img/character.png);
+  background: red;
 }
+
+
+
 
 .foreground-1 {
   position: absolute;
