@@ -15,12 +15,14 @@
 
 .player {
   position: absolute;
-  width: 72px;
-  height: 106px;
+  width: 100px;
+  height: 90px;
   left: 120px;
   bottom: 120px;
+
   background-color: red;
   //content: url(img/player-img.png);
+
 }
 
 .obstacle1 {

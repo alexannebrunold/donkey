@@ -83,13 +83,32 @@ body.home {
 .home__howToPlay {
   position: absolute;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-  // opacity: 0;
+  opacity: 0;
   visibility: hidden;
-  transition: opacity 2s;
+  transition: opacity 1s;
 
   img {
     max-width: 80%;
   }
 }
 
-.is-open 
+
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close {
+  position: absolute;
+  right: 150px;
+  top: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  img {
+    max-width: 20px;
+  }
+}
+

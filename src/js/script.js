@@ -1,41 +1,8 @@
 var isJumping = false;
 var posJumping = 0;
-var jumpList = [
-  30,
-  30,
-  20,
-  20,
-  20,
-  10,
-  10,
-  10,
-  10,
-  10,
-  10,
-  10,
-  10,
-  10,
-  10,
-  10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -20,
-  -20,
-  -20,
-  -30,
-  -30
+var jumpList = [30, 30, 20, 20, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -20, -20, -20, -30, -30];
+var value
 
-];
-var value;
 x = 120;
 y = 120;
 x_obst = 1268;
@@ -57,6 +24,7 @@ x_bg2 = 1286;
 w_bg2 = 1422;
 
 // ENTER GAME
+
 
 oxo.inputs.listenKeyOnce("enter", function() {
   oxo.screens.loadScreen("game", function() {
@@ -135,12 +103,13 @@ oxo.inputs.listenKeyOnce("enter", function() {
 
 
 
+
 oxo.inputs.listenKey("space", function () {
   if (oxo.screens.getCurrentScreen() == "game") {
     if (!isJumping) {
       isJumping = true;
-
     }
+
 
     x_obst -= 10 * speed;
     obst.style.left = x_obst + "px";
@@ -167,6 +136,67 @@ oxo.inputs.listenKey("space", function () {
   }, 50);
 
   }
+
+  } else {
+    oxo.screens.loadScreen("game", function () {
+      var character = document.querySelector('.player');
+      var ennemy = document.querySelector('.obstacle1');
+      var affichageScore = document.querySelector('.affichageScore');
+
+      //Score
+      value = 0;
+      setInterval(function () {
+        value++;
+        var inGameScore = document.querySelector('.affichageScore__game');
+        inGameScore.innerHTML = value;
+
+      },
+        1000
+      );
+
+
+
+      affichageScore.innerHTML = value;
+
+
+      setInterval(function doGame() {
+        if (isJumping) {
+          vplayer = document.querySelector(".player");
+          ecart = jumpList[posJumping];
+          y += ecart;
+          placePlayer(x, y);
+          posJumping++;
+          if (posJumping == jumpList.length) {
+            isJumping = false;
+            posJumping = 0;
+          }
+        }
+        x_obst -= 10;
+        ennemy.style.left = x_obst + "px";
+      }, 50);
+
+
+      //Collision
+      oxo.elements.onCollisionWithElement(character, ennemy, function () {
+        oxo.screens.loadScreen("end", function () {
+          var affichageScore = document.querySelector('.affichageScore');
+
+          affichageScore.innerHTML = "Score :" + " " + value;
+          var rejouer = document.querySelector(".end__btn");
+          rejouer.addEventListener("click", function () {
+            oxo.screens.loadScreen("game", function () { });
+          });
+
+          //Click go to home page
+          var home = document.querySelector(".end__btn--home");
+          home.addEventListener("click", function () {
+            oxo.screens.loadScreen("home", function () { });
+          });
+        });
+      });
+    });
+  };
+
 });
 
 
@@ -187,21 +217,17 @@ setInterval(function doGame() {
     if (posJumping == jumpList.length) {
       isJumping = false;
       posJumping = 0;
-
     }
   }
-  var obst = document.querySelector('.obstacle1');
+  var obst = document.querySelector(".obstacle1");
   x_obst -= 10 * speed;
   obst.style.left = x_obst + "px";
   if (x_obst <= -20) {
     x_obst = 1268;
   }
   // Parallax
-  var foreground1 = document.querySelector('.foreground-1');
-  var foreground2 = document.querySelector('.foreground-2');
-
-
-
+  var foreground1 = document.querySelector(".foreground-1");
+  var foreground2 = document.querySelector(".foreground-2");
 
   x_fg1 -= 7 * speed;
   x_fg2 -= 7 * speed;
@@ -214,8 +240,8 @@ setInterval(function doGame() {
     x_fg2 = x_fg1 + w_fg1;
   }
 
-  var background1 = document.querySelector('.background-1');
-  var background2 = document.querySelector('.background-2');
+  var background1 = document.querySelector(".background-1");
+  var background2 = document.querySelector(".background-2");
 
   x_bg1 -= 3 * speed;
   x_bg2 -= 3 * speed;
@@ -230,12 +256,21 @@ setInterval(function doGame() {
   speed += 0.005;
 }, 50);
 
-oxo.screens.loadScreen("home", function() {
+
+oxo.screens.loadScreen("home", function () {
+
+
   var btnHowToPlay = document.getElementById("btnHowToPlay");
   var instructions = document.getElementById("instructions");
+  var instructionsClose = document.getElementById("close");
 
-  btnHowToPlay.addEventListener("click", function() {
+  btnHowToPlay.addEventListener("click", function () {
     instructions.classList.toggle("is-open");
-    console.log("hello");
+
+
+    instructionsClose.addEventListener("click", function () {
+
+      instructions.classList.remove("is-open");
+    });
   });
 });
