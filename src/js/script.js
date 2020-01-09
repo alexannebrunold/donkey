@@ -1,6 +1,6 @@
 var isJumping = false;
 var posJumping = 0;
-var jumpList = [30, 30, 20, 20, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -20, -20, -20, -30, -30];
+var jumpList = [60, 60, 30, 30, 15, 15, 15, 15, -15, -15, -15, -15, -30, -30, -60, -60];
 var value
 x = 120;
 y = 120;
@@ -17,11 +17,12 @@ oxo.inputs.listenKeyOnce("enter", function () {
     value = 0;
     setInterval(function () {
       value++;
+      affichageScore.innerHTML = value;
     },
       1000
     );
 
-    affichageScore.innerHTML = value;
+
 
     setInterval(function doGame() {
       if (isJumping) {
@@ -78,7 +79,7 @@ oxo.inputs.listenKeyOnce("enter", function () {
       }
     }
     var obst = document.querySelector('.obstacle1');
-    x_obst -= 10*speed;
+    x_obst -= 10 * speed;
     obst.style.left = x_obst + "px";
     speed += 0.005;
     if (x_obst <= -20) {
