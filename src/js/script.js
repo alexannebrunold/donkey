@@ -8,7 +8,7 @@ function resetValues() {
   value = 0;
   x = 250;
   y = 120;
-  x_obst = 1268;
+  x_obst = 1306;
 
   x_fg1 = 0;
   w_fg1 = 1286;
@@ -66,7 +66,7 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
       if (x_gr1 <= -1286) {
         x_gr1 = x_gr2 + w_gr2;
       }
-      if (x_gr2 <= -1400) {
+      if (x_gr2 <= -1286) {
         x_gr2 = x_gr1 + w_gr1;
       }
 
