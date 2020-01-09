@@ -65,12 +65,7 @@ oxo.inputs.listenKeyOnce("enter", function() {
       value++;
       var inGameScore = document.querySelector(".affichageScore__game");
       inGameScore.innerHTML = value;
-
-
-    },
-      1000
-    );
-
+    }, 1000);
 
     affichageScore.innerHTML = value;
 
@@ -92,35 +87,31 @@ oxo.inputs.listenKeyOnce("enter", function() {
 
     //Collision
 
-    oxo.elements.onCollisionWithElement(character, ennemy, function () {
-      oxo.screens.loadScreen("end", function () {
-        var affichageScore = document.querySelector('.affichageScore');
+    oxo.elements.onCollisionWithElement(character, ennemy, function() {
+      oxo.screens.loadScreen("end", function() {
+        var affichageScore = document.querySelector(".affichageScore");
         affichageScore.innerHTML = "Score :" + " " + value;
         var rejouer = document.querySelector(".end__btn");
-        rejouer.addEventListener("click", function () {
-          oxo.screens.loadScreen("game", function () { });
+        rejouer.addEventListener("click", function() {
+          oxo.screens.loadScreen("game", function() {});
         });
         //Click go to home page
         var home = document.querySelector(".end__btn--home");
-        home.addEventListener("click", function () {
-          oxo.screens.loadScreen("home", function () { });
+        home.addEventListener("click", function() {
+          oxo.screens.loadScreen("home", function() {});
         });
-
       });
     });
   });
 });
 
-
-oxo.inputs.listenKey("space", function () {
+oxo.inputs.listenKey("space", function() {
   if (oxo.screens.getCurrentScreen() == "game") {
     if (!isJumping) {
       isJumping = true;
-
     }
   }
 });
-
 
 function placePlayer(x_player, y_player) {
   var d = document.querySelector(".player");
@@ -139,21 +130,17 @@ setInterval(function doGame() {
     if (posJumping == jumpList.length) {
       isJumping = false;
       posJumping = 0;
-
     }
   }
-  var obst = document.querySelector('.obstacle1');
+  var obst = document.querySelector(".obstacle1");
   x_obst -= 10 * speed;
   obst.style.left = x_obst + "px";
   if (x_obst <= -20) {
     x_obst = 1268;
   }
   // Parallax
-  var foreground1 = document.querySelector('.foreground-1');
-  var foreground2 = document.querySelector('.foreground-2');
-
-
-
+  var foreground1 = document.querySelector(".foreground-1");
+  var foreground2 = document.querySelector(".foreground-2");
 
   x_fg1 -= 7 * speed;
   x_fg2 -= 7 * speed;
@@ -166,8 +153,8 @@ setInterval(function doGame() {
     x_fg2 = x_fg1 + w_fg1;
   }
 
-  var background1 = document.querySelector('.background-1');
-  var background2 = document.querySelector('.background-2');
+  var background1 = document.querySelector(".background-1");
+  var background2 = document.querySelector(".background-2");
 
   x_bg1 -= 3 * speed;
   x_bg2 -= 3 * speed;
@@ -185,9 +172,13 @@ setInterval(function doGame() {
 oxo.screens.loadScreen("home", function() {
   var btnHowToPlay = document.getElementById("btnHowToPlay");
   var instructions = document.getElementById("instructions");
+  var instructionsClose = document.getElementById("close");
 
   btnHowToPlay.addEventListener("click", function() {
     instructions.classList.toggle("is-open");
-    console.log("hello");
+
+    instructionsClose.addEventListener("click", function() {
+      instructions.classList.remove("is-open");
+    });
   });
 });
