@@ -116,6 +116,7 @@
   bottom: 260px;
   content: url(../assets/img/monster.png);
 }
+
 //Obstacles
 .obstacle1 {
     position: absolute;
@@ -123,9 +124,7 @@
     height: 64px;
     left: 1306px;
     bottom: 120px;
-    //background: yellow;
     content: url(../assets/img/barrel.png)
-    //content: url(../assets/img/obstacle1.png);
   }
 
 // .obstacle1{
@@ -134,3 +133,17 @@
 // .obstacle3{
 //   content: url(../assets/img/obstacle3.png);
 // }
+
+//Tir balls
+
+.ball{
+  width: 12px;
+  height: 8px;
+  position: absolute;
+  top: 50px;
+  left:200px;
+  background-color: pink;
+  &.destroyed{
+    background-color: red;
+  }
+}

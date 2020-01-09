@@ -35,44 +35,44 @@ var jumpList = [
   -30,
   -30
 ];
-// var jumpList2 = [30,
-//   30,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   20,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -10,
-//   -20,
-//   -20,
-//   -20,
-//   -30,
-//   -30];
+var jumpList2 = [30,
+  30,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -20,
+  -20,
+  -20,
+  -30,
+  -30];
 var value;
 
 x = 120;
 y = 120;
 x_obst = 1268;
-// x_ptn = 1268;
+x_ptn = 1268;
 speed = 0;
 
 x_fg1 = 0;
@@ -134,7 +134,7 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     var character = document.querySelector(".player");
     var ennemy = document.querySelector(".obstacle1");
     var affichageScore = document.querySelector(".affichageScore");
-    // potion = document.querySelector(".potion");
+    potion = document.querySelector(".potion");
 
     /// TRUCS QUI BOUGENT ///
 
@@ -216,25 +216,24 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     }, interval_ms);
 
     //Collision
-    // oxo.elements.onCollisionWithElement(character, potion, function () {
-    //   potion.classList.add("disapear");
-    //   var r = jumpList;
-    //   jumpList = jumpList2;
-    //   jumpList2 = r;
-    //   console.log(jumpList, jumpList2);
+    oxo.elements.onCollisionWithElement(character, potion, function () {
+      potion.classList.add("disapear");
+      var r = jumpList;
+      jumpList = jumpList2;
+      jumpList2 = r;
+      console.log(jumpList, jumpList2);
 
-    // });
+    });
 
-    /*setInterval(function()
-    {
-      oxo.elements.createElement ({
-      type : "div",
-      class : "potion",
-      appendTo: ".background"
-    })
-    x_ptn -= 10;
-    potion.style.left = x_ptn +"px";
-  },50)*/
+    setInterval(function () {
+      oxo.elements.createElement({
+        type: "div",
+        class: "potion",
+        appendTo: ".background"
+      })
+      x_ptn -= 10;
+      potion.style.left = x_ptn + "px";
+    }, 50)
 
     oxo.elements.onCollisionWithElement(character, ennemy, function dead() {
       oxo.screens.loadScreen("end", function () {
@@ -283,13 +282,13 @@ oxo.screens.loadScreen("home", function () {
   var instructions = document.getElementById("instructions");
   var instructionsClose = document.getElementById("close");
 
-  // var ptn = document.querySelector('.potion');
-  // x_ptn -= 5 * speed;
-  // ptn.style.left = x_ptn + "px";
-  // speed += 0.005;
-  // if (x_ptn <= -20) {
-  //   x_ptn = 1268;
-  // }
+  var ptn = document.querySelector('.potion');
+  x_ptn -= 5 * speed;
+  ptn.style.left = x_ptn + "px";
+  speed += 0.005;
+  if (x_ptn <= -20) {
+    x_ptn = 1268;
+  }
   var obst = document.querySelector('.obstacle1');
   x_obst -= 10 * speed;
   obst.style.left = x_obst + "px";
@@ -311,68 +310,28 @@ oxo.screens.loadScreen("home", function () {
 
 });
 
-/*
+//Tir
 x_obst -= 10 * speed;
-    obst.style.left = x_obst + "px";
-    speed += 0.005;
-    if (x_obst <= -20) {
-      x_obst = 1268;
-      obst.classList.remove("destroyed");
+obst.style.left = x_obst + "px";
+speed += 0.005;
+if (x_obst <= -20) {
+  x_obst = 1268;
+  obst.classList.remove("destroyed");
 
 
-    oxo.inputs.listenKey("enter", function() {
-      let ball = oxo.elements.createElement({
-        class: "ball",
-        appendTo: ".background"
-      });
-
-      oxo.elements.onLeaveScreenOnce(ball, function() {
-        ball.remove();
-      });
-
-      oxo.elements.onCollisionWithElementOnce(ball, obst, function() {
-        obst.classList.add("destroyed");
-      });
+  oxo.inputs.listenKey("right", function () {
+    let ball = oxo.elements.createElement({
+      class: "ball",
+      appendTo: ".background"
     });
 
-  });
-});
 
-// //Create 3 elements obstacles to generate aleatoirement
+    oxo.elements.onLeaveScreenOnce(ball, function () {
+      ball.remove();
+    });
 
-// var obstacle1 = oxo.elements.createElement({
-//   type: 'div',
-//   class: 'obstacle1',
-//   obstacle: true,
-//   appendTo: 'game' // optional
-// });
-
-// var obstacle2 = oxo.elements.createElement({
-//   type: 'div',
-//   class: 'obstacle2',
-//   obstacle: true,
-//   appendTo: 'game' // optional
-// });
-
-// var obstacle3 = oxo.elements.createElement({
-//   type: 'div',
-//   class: 'obstacle3',
-//   obstacle: true,
-//   appendTo: 'game' // optional body
-// });
-
-// function shuffle(obstacle2) {
-//   var obstacle1, obstacle2, obstacle3;
-//   for (i = a.length - 1; i > 0; i--) {
-//     obstacle1 = Math.floor(Math.random() * (i + 1));
-//     obstacle2 = a[i];
-//     a[i] = a[obstacle1];
-//     a[obstacle1] = x;
-//   }
-//   return obstacle2;
-// };
-
-// element is appended to the document
-
+    oxo.elements.onCollisionWithElementOnce(ball, obst, function () {
+      obst.classList.add("destroyed");
+    });
   }, 50);
-  */
+};
