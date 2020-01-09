@@ -1,7 +1,7 @@
-// body {
-//   background-image: url(../assets/img/background_gameover.png);
-//   background-repeat: no-repeat;
-// }
+body.end {
+  background-image: url(../assets/img/background_gameover.png);
+  background-repeat: no-repeat;
+}
 
 .end {
   width: 1286px;
@@ -65,10 +65,10 @@
 
 //Score
 
-.affichageScore{
+.affichageScore {
   font-size: 35px;
   font-family: "Pixeled";
-  //border: solid red 1px; 
   text-align: center;
   padding-top: 22.5px;
+  color: white;
 }
