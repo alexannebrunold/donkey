@@ -10,30 +10,27 @@
   width: 1286px;
   height: 120px;
   bottom: 0;
-  background: blue;
+  content: url(../assets/img/ground.jpg);
 }
 
 .player {
   position: absolute;
-  width: 100px;
-  height: 90px;
+
+  max-width: 80px;
   left: 120px;
   bottom: 120px;
-
-  background-color: red;
-  //content: url(img/player-img.png);
+  // background: red;
+  content: url(../assets/img/character.png);
 
 }
 
 .obstacle1 {
   position: absolute;
-  width: 20px;
-  height: 60px;
+  max-width: 80px;
   left: 1286px;
-  bottom: 120px;
-  background: yellow;
+  bottom: 115px;
+  content: url(../assets/img/obstacle1.png);
   //opacity: 0;
-
   &.visible {
     opacity: 1;
   }
