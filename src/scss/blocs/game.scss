@@ -35,5 +35,23 @@
   &.visible {
     opacity: 1;
   }
+
+  &.destroyed {
+    background: red;
+  }
+}
+.ball {
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 400px;
+  left: 210px;
+  animation: moveBall 2s forwards;
 }
 
+@keyframes moveBall {
+  to {
+    left: 1500px;
+  }
+}

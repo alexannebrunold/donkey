@@ -1,25 +1,42 @@
 var isJumping = false;
 var posJumping = 0;
-var jumpList = [60, 60, 30, 30, 15, 15, 15, 15, -15, -15, -15, -15, -30, -30, -60, -60];
-var value
+var jumpList = [
+  60,
+  60,
+  30,
+  30,
+  15,
+  15,
+  15,
+  15,
+  -15,
+  -15,
+  -15,
+  -15,
+  -30,
+  -30,
+  -60,
+  -60
+];
+var value;
 x = 120;
 y = 120;
 x_obst = 1268;
 speed = 0;
+let obst;
 
-oxo.inputs.listenKeyOnce("enter", function () {
-  oxo.screens.loadScreen("game", function () {
-    var character = document.querySelector('.player');
-    var ennemy = document.querySelector('.obstacle1');
-    var affichageScore = document.querySelector('.affichageScore');
+oxo.inputs.listenKeyOnce("enter", function() {
+  oxo.screens.loadScreen("game", function() {
+    var character = document.querySelector(".player");
+    var ennemy = document.querySelector(".obstacle1");
+    var affichageScore = document.querySelector(".affichageScore");
+    obst = document.querySelector(".obstacle1");
 
     //Score
     value = 0;
-    setInterval(function () {
+    setInterval(function() {
       value++;
-    },
-      1000
-    );
+    }, 1000);
 
     affichageScore.innerHTML = value;
 
@@ -40,17 +57,17 @@ oxo.inputs.listenKeyOnce("enter", function () {
     }, 50);
 
     //Collision
-    oxo.elements.onCollisionWithElement(character, ennemy, function () {
-      oxo.screens.loadScreen("end", function () {
-        var affichageScore = document.querySelector('.affichageScore');
-
-        affichageScore.innerHTML = value;
-
-      });
+    oxo.elements.onCollisionWithElement(character, ennemy, function() {
+      if (!obst.classList.contains("destroyed")) {
+        oxo.screens.loadScreen("end", function() {
+          var affichageScore = document.querySelector(".affichageScore");
+          affichageScore.innerHTML = value;
+        });
+      }
     });
   });
 
-  oxo.inputs.listenKey("space", function () {
+  oxo.inputs.listenKey("space", function() {
     if (oxo.screens.getCurrentScreen() == "game") {
       if (!isJumping) {
         isJumping = true;
@@ -77,12 +94,27 @@ oxo.inputs.listenKeyOnce("enter", function () {
         posJumping = 0;
       }
     }
-    var obst = document.querySelector('.obstacle1');
-    x_obst -= 10*speed;
+    x_obst -= 10 * speed;
     obst.style.left = x_obst + "px";
     speed += 0.005;
     if (x_obst <= -20) {
       x_obst = 1268;
+      obst.classList.remove("destroyed");
     }
+
+    oxo.inputs.listenKey("enter", function() {
+      let ball = oxo.elements.createElement({
+        class: "ball",
+        appendTo: ".background"
+      });
+
+      oxo.elements.onLeaveScreenOnce(ball, function() {
+        ball.remove();
+      });
+
+      oxo.elements.onCollisionWithElementOnce(ball, obst, function() {
+        obst.classList.add("destroyed");
+      });
+    });
   }, 50);
 });
