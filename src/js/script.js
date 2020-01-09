@@ -4,7 +4,7 @@ let doGameInterval;
 function resetValues() {
   isJumping = false;
   posJumping = 0;
-  jumpList = [40,30,30,20,20,20,10,10,10,10,10,-10,-10,-10,-10,-10,-20,-20,-20,-30,-30,-40];
+  jumpList = [40,30,30,20,20,10,10,10,-10,-10,-10,-20,-20,-30,-30,-40];
   value = 0;
   x = 120;
   y = 120;
@@ -96,10 +96,7 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     
         }
       }
-      // Parallax
-      
 
-      console.log(x_obst);
       var inGameScore = document.querySelector(".affichageScore__game");
       inGameScore.innerHTML = value;
       affichageScore.innerHTML = value;
@@ -153,9 +150,40 @@ function placePlayer(x_player, y_player) {
 oxo.screens.loadScreen("home", function() {
   var btnHowToPlay = document.getElementById("btnHowToPlay");
   var instructions = document.getElementById("instructions");
+  var instructionsClose = document.getElementById("close");
 
   btnHowToPlay.addEventListener("click", function() {
     instructions.classList.toggle("is-open");
-    console.log("hello");
   });
+  
+  instructionsClose.addEventListener("click", function() {
+    instructions.classList.remove("is-open");
+  });
+  
 });
+
+/*
+x_obst -= 10 * speed;
+    obst.style.left = x_obst + "px";
+    speed += 0.005;
+    if (x_obst <= -20) {
+      x_obst = 1268;
+      obst.classList.remove("destroyed");
+
+
+    oxo.inputs.listenKey("enter", function() {
+      let ball = oxo.elements.createElement({
+        class: "ball",
+        appendTo: ".background"
+      });
+
+      oxo.elements.onLeaveScreenOnce(ball, function() {
+        ball.remove();
+      });
+
+      oxo.elements.onCollisionWithElementOnce(ball, obst, function() {
+        obst.classList.add("destroyed");
+      });
+    });
+  }, 50);
+  */
