@@ -35,43 +35,43 @@ var jumpList = [
   -30,
   -30
 ];
- var jumpList2 = [30,
-  30,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -20,
-  -20,
-  -20,
-  -30,
-  -30];
+// var jumpList2 = [30,
+//   30,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -20,
+//   -20,
+//   -20,
+//   -30,
+//   -30];
 var value;
 x = 120;
 y = 120;
 x_obst = 1268;
-x_ptn = 1268;
+// x_ptn = 1268;
 speed = 0;
 
 x_fg1 = 0;
@@ -133,7 +133,7 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     var character = document.querySelector(".player");
     var ennemy = document.querySelector(".obstacle1");
     var affichageScore = document.querySelector(".affichageScore");
-    potion = document.querySelector(".potion");
+    // potion = document.querySelector(".potion");
 
     /// TRUCS QUI BOUGENT ///
 
@@ -215,14 +215,14 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     }, interval_ms);
 
     //Collision
-    oxo.elements.onCollisionWithElement(character,potion,function(){
-      potion.classList.add("disapear");
-      var r = jumpList;
-      jumpList = jumpList2;
-      jumpList2 = r;
-      console.log(jumpList,jumpList2);
+    // oxo.elements.onCollisionWithElement(character, potion, function () {
+    //   potion.classList.add("disapear");
+    //   var r = jumpList;
+    //   jumpList = jumpList2;
+    //   jumpList2 = r;
+    //   console.log(jumpList, jumpList2);
 
-    });
+    // });
 
     /*setInterval(function()
     {
@@ -282,17 +282,13 @@ oxo.screens.loadScreen("home", function () {
   var instructions = document.getElementById("instructions");
   var instructionsClose = document.getElementById("close");
 
-
-    }
-  }
-  
-    var ptn = document.querySelector('.potion');
-    x_ptn -= 5 * speed;
-    ptn.style.left = x_ptn +"px";
-    speed += 0.005;
-    if (x_ptn <= -20) {
-      x_ptn = 1268;
-    }
+  // var ptn = document.querySelector('.potion');
+  // x_ptn -= 5 * speed;
+  // ptn.style.left = x_ptn + "px";
+  // speed += 0.005;
+  // if (x_ptn <= -20) {
+  //   x_ptn = 1268;
+  // }
   var obst = document.querySelector('.obstacle1');
   x_obst -= 10 * speed;
   obst.style.left = x_obst + "px";
