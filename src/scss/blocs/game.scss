@@ -22,14 +22,8 @@
   background: red;
 }
 
-.obstacle1 {
-  position: absolute;
-  width: 20px;
-  height: 60px;
-  left: 1286px;
-  bottom: 120px;
-  background: yellow;
-}
+
+
 
 .foreground-1 {
   position: absolute;
@@ -85,3 +79,26 @@
   right: 0;
   color: #000000;
 }
+
+//Obstacles
+.obstacle1{
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    left: 1286px;
+    bottom: 120px;
+    //background: yellow;
+    //opacity: 0;
+    content: url(../assets/img/obstacle1.png);
+  
+    &.visible {
+      opacity: 1;
+    }
+  }
+
+// .obstacle1{
+//   content: url(../assets/img/obstacle2.png);
+// }
+// .obstacle3{
+//   content: url(../assets/img/obstacle3.png);
+// }

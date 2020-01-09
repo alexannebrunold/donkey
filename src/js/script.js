@@ -185,5 +185,46 @@ x_obst -= 10 * speed;
         obst.classList.add("destroyed");
       });
     });
+
+  });
+});
+
+// //Create 3 elements obstacles to generate aleatoirement
+
+// var obstacle1 = oxo.elements.createElement({
+//   type: 'div',
+//   class: 'obstacle1',
+//   obstacle: true,
+//   appendTo: 'game' // optional
+// });
+
+// var obstacle2 = oxo.elements.createElement({
+//   type: 'div',
+//   class: 'obstacle2',
+//   obstacle: true,
+//   appendTo: 'game' // optional
+// });
+
+// var obstacle3 = oxo.elements.createElement({
+//   type: 'div',
+//   class: 'obstacle3',
+//   obstacle: true,
+//   appendTo: 'game' // optional body
+// });
+
+// function shuffle(obstacle2) {
+//   var obstacle1, obstacle2, obstacle3;
+//   for (i = a.length - 1; i > 0; i--) {
+//     obstacle1 = Math.floor(Math.random() * (i + 1));
+//     obstacle2 = a[i];
+//     a[i] = a[obstacle1];
+//     a[obstacle1] = x;
+//   }
+//   return obstacle2;
+// };
+
+// element is appended to the document
+
   }, 50);
   */
+>
