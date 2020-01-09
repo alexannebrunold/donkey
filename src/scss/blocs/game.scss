@@ -80,13 +80,14 @@
   left: 1286px;
   background-color: white;
 }
-//Score
 
+//Score
 .affichageScore__game{
   position: absolute;
   font-size: 35px;
   font-family: "Pixeled";
+  color: red;
   float: right;
-  padding-top: 35px;
-  padding-left: 15px;
+  padding-top: 50px;
+  padding-right: 55px;
 }
