@@ -23,15 +23,6 @@
   content: url(../assets/img/character.png)
 }
 
-.obstacle1 {
-  position: absolute;
-  width: 20px;
-  height: 60px;
-  left: 1286px;
-  bottom: 120px;
-  background: yellow;
-}
-
 .foreground-1 {
   position: absolute;
   left: 0px;
@@ -95,3 +86,20 @@
   bottom: 105px;
   content: url(../assets/img/monster.png)
 }
+//Obstacles
+.obstacle1 {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    left: 1286px;
+    bottom: 120px;
+    background: yellow;
+    //content: url(../assets/img/obstacle1.png);
+  }
+
+// .obstacle1{
+//   content: url(../assets/img/obstacle2.png);
+// }
+// .obstacle3{
+//   content: url(../assets/img/obstacle3.png);
+// }

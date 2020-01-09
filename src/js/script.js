@@ -159,5 +159,4 @@ oxo.screens.loadScreen("home", function() {
   instructionsClose.addEventListener("click", function() {
     instructions.classList.remove("is-open");
   });
-  
 });
