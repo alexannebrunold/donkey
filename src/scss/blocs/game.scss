@@ -83,17 +83,18 @@
   width: 147px;
   height: 166px;
   left: 70px;
-  bottom: 105px;
+  bottom: 112px;
   content: url(../assets/img/monster.png)
 }
 //Obstacles
 .obstacle1 {
     position: absolute;
-    width: 20px;
-    height: 60px;
+    width: 48px;
+    height: 64px;
     left: 1286px;
     bottom: 120px;
-    background: yellow;
+    //background: yellow;
+    content: url(../assets/img/barrel.png)
     //content: url(../assets/img/obstacle1.png);
   }
 
