@@ -15,11 +15,12 @@
 
 .player {
   position: absolute;
-  width: 60px;
-  height: 100px;
-  left: 120px;
+  width: 67px;
+  height: 106px;
+  left: 250px;
   bottom: 120px;
-  background: red;
+  //background: red;
+  content: url(../assets/img/character.png)
 }
 
 .obstacle1 {
@@ -84,4 +85,13 @@
   margin-right: 35px;
   right: 0;
   color: #000000;
+}
+
+.monster {
+  position: absolute;
+  width: 147px;
+  height: 166px;
+  left: 70px;
+  bottom: 105px;
+  content: url(../assets/img/monster.png)
 }

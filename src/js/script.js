@@ -6,7 +6,7 @@ function resetValues() {
   posJumping = 0;
   jumpList = [40,30,30,20,20,10,10,10,-10,-10,-10,-20,-20,-30,-30,-40];
   value = 0;
-  x = 120;
+  x = 250;
   y = 120;
   x_obst = 1268;
 
@@ -161,29 +161,3 @@ oxo.screens.loadScreen("home", function() {
   });
   
 });
-
-/*
-x_obst -= 10 * speed;
-    obst.style.left = x_obst + "px";
-    speed += 0.005;
-    if (x_obst <= -20) {
-      x_obst = 1268;
-      obst.classList.remove("destroyed");
-
-
-    oxo.inputs.listenKey("enter", function() {
-      let ball = oxo.elements.createElement({
-        class: "ball",
-        appendTo: ".background"
-      });
-
-      oxo.elements.onLeaveScreenOnce(ball, function() {
-        ball.remove();
-      });
-
-      oxo.elements.onCollisionWithElementOnce(ball, obst, function() {
-        obst.classList.add("destroyed");
-      });
-    });
-  }, 50);
-  */
