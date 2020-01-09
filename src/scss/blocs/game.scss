@@ -19,7 +19,10 @@
   height: 90px;
   left: 120px;
   bottom: 120px;
-  content: url(../assets/img/character.png);
+
+  background-color: red;
+  //content: url(img/player-img.png);
+
 }
 
 .obstacle1 {
@@ -34,8 +37,27 @@
   &.visible {
     opacity: 1;
   }
+
+  &.destroyed {
+    background-color: red;
+  }
+}
+.ball {
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 400px;
+  left: 210px;
+  animation: moveBall 2s forwards;
 }
 
+
+@keyframes moveBall {
+  to {
+    left: 1500px;
+  }
+}
 .foreground-1 {
   position: absolute;
   left: 0px;
@@ -89,4 +111,5 @@
   margin-right: 35px;
   right: 0;
   color: #000000;
+
 }
