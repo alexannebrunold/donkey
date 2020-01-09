@@ -23,6 +23,24 @@
   content: url(../assets/img/character.png)
 }
 
+.ground-1 {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 1286px;
+  height: 120px;
+  content: url(../assets/img/ground.jpg);
+}
+
+.ground-2 {
+  position: absolute;
+  left: 1286px;
+  bottom: 0px;
+  width: 1286px;
+  height: 120px;
+  content: url(../assets/img/ground.jpg);
+}
+
 .foreground-1 {
   position: absolute;
   left: 0px;
