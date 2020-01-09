@@ -34,44 +34,44 @@ var jumpList = [
   -30,
   -30
 ];
-var jumpList2 = [30,
-  30,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  20,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -10,
-  -20,
-  -20,
-  -20,
-  -30,
-  -30];
-var value;
+// var jumpList2 = [30,
+//   30,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -20,
+//   -20,
+//   -20,
+//   -30,
+//   -30];
+// var value;
 
 x = 120;
 y = 120;
 x_obst = 1268;
-x_ptn = 1268;
+//x_ptn = 1268;
 speed = 0;
 
 x_fg1 = 0;
@@ -139,20 +139,17 @@ function resetValues() {
 }
 
 // ENTER GAME
-oxo.inputs.listenKeyOnce("enter", function startGame() {
+oxo.inputs.listenKey("enter", function startGame() {
   resetValues();
-
 
   reduceInterval = setInterval(function () {
     interval_ms -= 0.2;
   }, 500)
 
-
-  oxo.screens.loadScreen("game", function() {
+  oxo.screens.loadScreen("game", function () {
     var character = document.querySelector(".player");
     var ennemy = document.querySelector(".obstacle1");
     var affichageScore = document.querySelector(".affichageScore");
-    potion = document.querySelector(".potion");
 
     /// TRUCS QUI BOUGENT ///
 
@@ -232,136 +229,104 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     }, interval_ms);
 
     //Collision
-    oxo.elements.onCollisionWithElement(character, potion, function () {
-      potion.classList.add("disapear");
-      var r = jumpList;
-      jumpList = jumpList2;
-      jumpList2 = r;
-      console.log(jumpList, jumpList2);
-
-    });
-
-    setInterval(function () {
-      oxo.elements.createElement({
-        type: "div",
-        class: "potion",
-        appendTo: ".background"
-      })
-      x_ptn -= 10;
-      potion.style.left = x_ptn + "px";
-    }, 50)
 
     oxo.elements.onCollisionWithElement(character, ennemy, function dead() {
-      oxo.screens.loadScreen("end", function() {
+      oxo.screens.loadScreen("end", function () {
         clearInterval(doGameInterval);
         clearInterval(reduceInterval);
         var affichageScore = document.querySelector(".affichageScore");
         affichageScore.innerHTML = "Score : " + value;
         var rejouer = document.querySelector(".end__btn");
-        rejouer.addEventListener("click", function() {
+        rejouer.addEventListener("click", function () {
           clearInterval(doGameInterval);
           clearInterval(reduceInterval);
           startGame();
         });
         //Click go to home page
         var home = document.querySelector(".end__btn--home");
-        home.addEventListener("click", function() {
-          oxo.screens.loadScreen("home", function() {});
+        home.addEventListener("click", function () {
+          oxo.screens.loadScreen("home", function () { });
           clearInterval(doGameInterval);
           clearInterval(reduceInterval);
         });
       });
     });
   });
-});
 
-oxo.inputs.listenKey("space", function() {
-  if (oxo.screens.getCurrentScreen() == "game") {
-    if (!isJumping) {
-      isJumping = true;
+  oxo.inputs.listenKey("space", function () {
+    if (oxo.screens.getCurrentScreen() == "game") {
+      if (!isJumping) {
+        isJumping = true;
+      }
     }
+  });
+
+  function placePlayer(x_player, y_player) {
+    var d = document.querySelector(".player");
+    d.style.position = "absolute";
+    //d.style.left = x_player + "px";
+    d.style.bottom = y_player + "px";
   }
-});
 
-function placePlayer(x_player, y_player) {
-  var d = document.querySelector(".player");
-  d.style.position = "absolute";
-  //d.style.left = x_player + "px";
-  d.style.bottom = y_player + "px";
-}
+  oxo.screens.loadScreen("home", function () {
+    var btnHowToPlay = document.getElementById("btnHowToPlay");
+    var instructions = document.getElementById("instructions");
+    var instructionsClose = document.getElementById("close");
 
-oxo.screens.loadScreen("home", function() {
-  var btnHowToPlay = document.getElementById("btnHowToPlay");
-  var instructions = document.getElementById("instructions");
-  var instructionsClose = document.getElementById("close");
+    // Parallax
+    var foreground1 = document.querySelector(".foreground-1");
+    var foreground2 = document.querySelector(".foreground-2");
+
+    btnHowToPlay.addEventListener("click", function () {
+      instructions.classList.toggle("is-open");
+    });
+
+    instructionsClose.addEventListener("click", function () {
+      instructions.classList.remove("is-open");
+    });
+  });
 
 
-  var ptn = document.querySelector('.potion');
-  x_ptn -= 5 * speed;
-  ptn.style.left = x_ptn + "px";
-  speed += 0.005;
-  if (x_ptn <= -20) {
-    x_ptn = 1268;
-  }
-  var obst = document.querySelector('.obstacle1');
+  //Tir
+
+  // var ptn = document.querySelector('.potion');
+  // x_ptn -= 5 * speed;
+  // ptn.style.left = x_ptn + "px";
+  // speed += 0.005;
+  // if (x_ptn <= -20) {
+  //   x_ptn = 1268;
+  // }
+  // var obst = document.querySelector(".obstacle1");
+  // x_obst -= 10 * speed;
+  // obst.style.left = x_obst + "px";
+  // if (x_obst <= -20) {
+  //   x_obst = 1268;
+  // }
+
   x_obst -= 10 * speed;
   obst.style.left = x_obst + "px";
+  speed += 0.005;
   if (x_obst <= -20) {
     x_obst = 1268;
-  }
+    obst.classList.remove("destroyed");
 
-  // Parallax
-  var foreground1 = document.querySelector(".foreground-1");
-  var foreground2 = document.querySelector(".foreground-2");
+    oxo.inputs.listenKey("right", function () {
+      i++
+      if (i < 3) {
+        let ball = oxo.elements.createElement({
+          class: "ball",
+          appendTo: ".background"
+        });
+      }
 
-  btnHowToPlay.addEventListener("click", function() {
-    instructions.classList.toggle("is-open");
-  });
 
-  instructionsClose.addEventListener("click", function() {
-    instructions.classList.remove("is-open");
-  });
+      oxo.elements.onLeaveScreenOnce(ball, function () {
+        ball.remove();
+      });
+
+      oxo.elements.onCollisionWithElementOnce(ball, obst, function () {
+        obst.classList.add("destroyed");
+      });
+    }, 50);
+  };
 });
-
-
-//Tir
-
-// var ptn = document.querySelector('.potion');
-// x_ptn -= 5 * speed;
-// ptn.style.left = x_ptn + "px";
-// speed += 0.005;
-// if (x_ptn <= -20) {
-//   x_ptn = 1268;
-// }
-var obst = document.querySelector(".obstacle1");
-x_obst -= 10 * speed;
-obst.style.left = x_obst + "px";
-if (x_obst <= -20) {
-  x_obst = 1268;
-}
-/*
-
-x_obst -= 10 * speed;
-obst.style.left = x_obst + "px";
-speed += 0.005;
-if (x_obst <= -20) {
-  x_obst = 1268;
-  obst.classList.remove("destroyed");
-
-
-  oxo.inputs.listenKey("right", function () {
-    let ball = oxo.elements.createElement({
-      class: "ball",
-      appendTo: ".background"
-    });
-
-
-    oxo.elements.onLeaveScreenOnce(ball, function () {
-      ball.remove();
-    });
-
-    oxo.elements.onCollisionWithElementOnce(ball, obst, function () {
-      obst.classList.add("destroyed");
-    });
-  }, 50);
-};
