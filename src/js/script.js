@@ -22,6 +22,12 @@ function resetValues() {
   x_bg2 = 1286;
   w_bg2 = 1422;
 
+  x_gr1 = 0;
+  w_gr1 = 1286;
+
+  x_gr2 = 1286;
+  w_gr2 = 1286;
+
   interval_ms = 50;
 }
 
@@ -49,6 +55,21 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
         value++;
         x_obst = 1268;
       }
+
+      var ground1 = document.querySelector('.ground-1');
+      var ground2 = document.querySelector('.ground-2');
+
+      x_gr1 -= 7;
+      x_gr2 -= 7;
+      ground1.style.left = x_gr1 + "px";
+      ground2.style.left = x_gr2 + "px";
+      if (x_gr1 <= -1286) {
+        x_gr1 = x_gr2 + w_gr2;
+      }
+      if (x_gr2 <= -1400) {
+        x_gr2 = x_gr1 + w_gr1;
+      }
+
       var foreground1 = document.querySelector('.foreground-1');
       var foreground2 = document.querySelector('.foreground-2');
 
