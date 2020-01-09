@@ -31,7 +31,7 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
   resetValues();
 
   reduceInterval = setInterval(function() {
-    interval_ms--;
+    interval_ms -= 0.5;
   },500)
 
   oxo.screens.loadScreen("game", function() {

@@ -10,51 +10,27 @@
   width: 1286px;
   height: 120px;
   bottom: 0;
-  content: url(../assets/img/ground.jpg);
+  background: blue;
 }
 
 .player {
   position: absolute;
-
-  max-width: 80px;
+  width: 60px;
+  height: 100px;
   left: 120px;
   bottom: 120px;
-  // background: red;
-  content: url(../assets/img/character.png);
-
+  background: red;
 }
 
 .obstacle1 {
   position: absolute;
-  max-width: 80px;
-  left: 1286px;
-  bottom: 115px;
-  content: url(../assets/img/obstacle1.png);
-  //opacity: 0;
-  &.visible {
-    opacity: 1;
-  }
-
-  &.destroyed {
-    background-color: red;
-  }
-}
-.ball {
   width: 20px;
-  height: 2px;
-  background-color: white;
-  position: absolute;
-  top: 400px;
-  left: 210px;
-  animation: moveBall 2s forwards;
+  height: 60px;
+  left: 1286px;
+  bottom: 120px;
+  background: yellow;
 }
 
-
-@keyframes moveBall {
-  to {
-    left: 1500px;
-  }
-}
 .foreground-1 {
   position: absolute;
   left: 0px;
@@ -108,5 +84,4 @@
   margin-right: 35px;
   right: 0;
   color: #000000;
-
 }
