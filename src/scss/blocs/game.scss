@@ -19,7 +19,7 @@
   height: 106px;
   left: 120px;
   bottom: 120px;
-  background: red;
+  background-color: red;
   //content: url(img/player-img.png);
 }
 
@@ -37,7 +37,7 @@
   }
 
   &.destroyed {
-    background: red;
+    background-color: red;
   }
 }
 .ball {
