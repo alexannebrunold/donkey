@@ -15,20 +15,30 @@
 
 .player {
   position: absolute;
-  width: 60px;
-  height: 100px;
-  left: 120px;
+  width: 67px;
+  height: 106px;
+  left: 250px;
   bottom: 120px;
-  background: red;
+  //background: red;
+  content: url(../assets/img/character.png)
 }
 
-.obstacle1 {
+.ground-1 {
   position: absolute;
-  width: 20px;
-  height: 60px;
+  left: 0px;
+  bottom: 0px;
+  width: 1286px;
+  height: 120px;
+  content: url(../assets/img/ground.jpg);
+}
+
+.ground-2 {
+  position: absolute;
   left: 1286px;
-  bottom: 120px;
-  background: yellow;
+  bottom: 0px;
+  width: 1286px;
+  height: 120px;
+  content: url(../assets/img/ground.jpg);
 }
 
 .foreground-1 {
@@ -74,7 +84,19 @@
   left: 1286px;
   background-color: white;
 }
+  .potion {
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 300px;
+    left: 1285px;
+    background: green;
 
+    &.disapear {
+    opacity:0;
+
+  }
+}
 //Score
 .affichageScore__game {
   position: absolute;
@@ -85,3 +107,30 @@
   right: 0;
   color: #000000;
 }
+
+.monster {
+  position: absolute;
+  width: 147px;
+  height: 166px;
+  left: 70px;
+  bottom: 260px;
+  content: url(../assets/img/monster.png);
+}
+//Obstacles
+.obstacle1 {
+    position: absolute;
+    width: 48px;
+    height: 64px;
+    left: 1306px;
+    bottom: 120px;
+    //background: yellow;
+    content: url(../assets/img/barrel.png)
+    //content: url(../assets/img/obstacle1.png);
+  }
+
+// .obstacle1{
+//   content: url(../assets/img/obstacle2.png);
+// }
+// .obstacle3{
+//   content: url(../assets/img/obstacle3.png);
+// }

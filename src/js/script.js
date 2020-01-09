@@ -1,9 +1,98 @@
+
+var isJumping = false;
+var posJumping = 0;
+var jumpList = [
+  30,
+  30,
+  20,
+  20,
+  20,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -20,
+  -20,
+  -20,
+  -30,
+  -30
+];
+// var jumpList2 = [30,
+//   30,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   20,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -10,
+//   -20,
+//   -20,
+//   -20,
+//   -30,
+//   -30];
+var value;
+x = 120;
+y = 120;
+x_obst = 1268;
+// x_ptn = 1268;
+speed = 0;
+
+x_fg1 = 0;
+w_fg1 = 1286;
+
+x_fg2 = 1286;
+w_fg2 = 1400;
+
+x_bg1 = 0;
+w_bg1 = 1286;
+
+x_bg2 = 1286;
+w_bg2 = 1422;
+
 isJumping = false;
 let doGameInterval;
 
 function resetValues() {
   isJumping = false;
   posJumping = 0;
+<<<<<<< HEAD
   jumpList = [
     40,
     30,
@@ -22,10 +111,13 @@ function resetValues() {
     -30,
     -40
   ];
+=======
+  jumpList = [40, 30, 30, 20, 20, 10, 10, 10, -10, -10, -10, -20, -20, -30, -30, -40];
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
   value = 0;
   x = 120;
   y = 120;
-  x_obst = 1268;
+  x_obst = 1306;
 
   x_fg1 = 0;
   w_fg1 = 1286;
@@ -39,21 +131,37 @@ function resetValues() {
   x_bg2 = 1286;
   w_bg2 = 1422;
 
+  x_gr1 = 0;
+  w_gr1 = 1286;
+
+  x_gr2 = 1286;
+  w_gr2 = 1286;
+
   interval_ms = 50;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 // ENTER GAME
 oxo.inputs.listenKeyOnce("enter", function startGame() {
   resetValues();
 
-  reduceInterval = setInterval(function() {
+  reduceInterval = setInterval(function () {
     interval_ms -= 0.5;
+<<<<<<< HEAD
   }, 500);
+=======
+  }, 500)
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 
-  oxo.screens.loadScreen("game", function() {
+  oxo.screens.loadScreen("game", function () {
     var character = document.querySelector(".player");
     var ennemy = document.querySelector(".obstacle1");
     var affichageScore = document.querySelector(".affichageScore");
+    // potion = document.querySelector(".potion");
 
     /// TRUCS QUI BOUGENT ///
     x_obst -= 10 * speed;
@@ -82,15 +190,39 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
       });
     });
     function name() {
+<<<<<<< HEAD
       var obst = document.querySelector(".obstacle1");
+=======
+      var obst = document.querySelector('.obstacle1');
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
       x_obst -= 10;
       obst.style.left = x_obst + "px";
       if (x_obst <= -20) {
         value++;
         x_obst = 1268;
       }
+<<<<<<< HEAD
       var foreground1 = document.querySelector(".foreground-1");
       var foreground2 = document.querySelector(".foreground-2");
+=======
+
+      var ground1 = document.querySelector('.ground-1');
+      var ground2 = document.querySelector('.ground-2');
+
+      x_gr1 -= 7;
+      x_gr2 -= 7;
+      ground1.style.left = x_gr1 + "px";
+      ground2.style.left = x_gr2 + "px";
+      if (x_gr1 <= -1286) {
+        x_gr1 = x_gr2 + w_gr2;
+      }
+      if (x_gr2 <= -1286) {
+        x_gr2 = x_gr1 + w_gr1;
+      }
+
+      var foreground1 = document.querySelector('.foreground-1');
+      var foreground2 = document.querySelector('.foreground-2');
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 
       x_fg1 -= 7;
       x_fg2 -= 7;
@@ -103,8 +235,13 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
         x_fg2 = x_fg1 + w_fg1;
       }
 
+<<<<<<< HEAD
       var background1 = document.querySelector(".background-1");
       var background2 = document.querySelector(".background-2");
+=======
+      var background1 = document.querySelector('.background-1');
+      var background2 = document.querySelector('.background-2');
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 
       x_bg1 -= 3;
       x_bg2 -= 3;
@@ -133,6 +270,10 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
         if (posJumping == jumpList.length) {
           isJumping = false;
           posJumping = 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
         }
       }
 
@@ -142,6 +283,25 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
     }, interval_ms);
 
     //Collision
+    // oxo.elements.onCollisionWithElement(character, potion, function () {
+    //   potion.classList.add("disapear");
+    //   var r = jumpList;
+    //   jumpList = jumpList2;
+    //   jumpList2 = r;
+    //   console.log(jumpList, jumpList2);
+
+    // });
+
+    /*setInterval(function()
+    {
+      oxo.elements.createElement ({
+      type : "div",
+      class : "potion",
+      appendTo: ".background"
+    })
+    x_ptn -= 10;
+    potion.style.left = x_ptn +"px";
+  },50)*/
 
     oxo.elements.onCollisionWithElement(character, ennemy, function dead() {
       oxo.screens.loadScreen("end", function() {
@@ -182,18 +342,43 @@ function placePlayer(x_player, y_player) {
   d.style.bottom = y_player + "px";
 }
 
-oxo.screens.loadScreen("home", function() {
+oxo.screens.loadScreen("home", function () {
   var btnHowToPlay = document.getElementById("btnHowToPlay");
   var instructions = document.getElementById("instructions");
   var instructionsClose = document.getElementById("close");
 
-  btnHowToPlay.addEventListener("click", function() {
+  // var ptn = document.querySelector('.potion');
+  // x_ptn -= 5 * speed;
+  // ptn.style.left = x_ptn + "px";
+  // speed += 0.005;
+  // if (x_ptn <= -20) {
+  //   x_ptn = 1268;
+  // }
+  var obst = document.querySelector('.obstacle1');
+  x_obst -= 10 * speed;
+  obst.style.left = x_obst + "px";
+  if (x_obst <= -20) {
+    x_obst = 1268;
+  }
+  // Parallax
+  var foreground1 = document.querySelector('.foreground-1');
+  var foreground2 = document.querySelector('.foreground-2');
+
+  btnHowToPlay.addEventListener("click", function () {
     instructions.classList.toggle("is-open");
   });
 
+<<<<<<< HEAD
   instructionsClose.addEventListener("click", function() {
     instructions.classList.remove("is-open");
   });
+=======
+
+  instructionsClose.addEventListener("click", function () {
+    instructions.classList.remove("is-open");
+  });
+
+>>>>>>> 98efb0f1448807e8d2a3c27a048a0bfd05d0a7b4
 });
 
 /*
@@ -219,5 +404,45 @@ x_obst -= 10 * speed;
         obst.classList.add("destroyed");
       });
     });
+
+  });
+});
+
+// //Create 3 elements obstacles to generate aleatoirement
+
+// var obstacle1 = oxo.elements.createElement({
+//   type: 'div',
+//   class: 'obstacle1',
+//   obstacle: true,
+//   appendTo: 'game' // optional
+// });
+
+// var obstacle2 = oxo.elements.createElement({
+//   type: 'div',
+//   class: 'obstacle2',
+//   obstacle: true,
+//   appendTo: 'game' // optional
+// });
+
+// var obstacle3 = oxo.elements.createElement({
+//   type: 'div',
+//   class: 'obstacle3',
+//   obstacle: true,
+//   appendTo: 'game' // optional body
+// });
+
+// function shuffle(obstacle2) {
+//   var obstacle1, obstacle2, obstacle3;
+//   for (i = a.length - 1; i > 0; i--) {
+//     obstacle1 = Math.floor(Math.random() * (i + 1));
+//     obstacle2 = a[i];
+//     a[i] = a[obstacle1];
+//     a[obstacle1] = x;
+//   }
+//   return obstacle2;
+// };
+
+// element is appended to the document
+
   }, 50);
   */
