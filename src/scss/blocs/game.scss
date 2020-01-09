@@ -83,10 +83,10 @@
 //Score
 
 .affichageScore__game{
+  position: absolute;
   font-size: 35px;
   font-family: "Pixeled";
-  //border: solid red 1px; 
   float: right;
   padding-top: 35px;
-  padding-right: 55px;
+  padding-left: 15px;
 }

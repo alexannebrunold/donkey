@@ -29,6 +29,9 @@ oxo.inputs.listenKeyOnce("enter", function () {
     value = 0;
     setInterval(function () {
       value++;
+      var inGameScore = document.querySelector('.affichageScore__game');
+      inGameScore.innerHTML = value;
+      
     },
       1000
     );
@@ -55,9 +58,7 @@ oxo.inputs.listenKeyOnce("enter", function () {
     oxo.elements.onCollisionWithElement(character, ennemy, function () {
       oxo.screens.loadScreen("end", function () {
         var affichageScore = document.querySelector('.affichageScore');
-
         affichageScore.innerHTML = value;
-
       });
     });
   });
