@@ -1,7 +1,40 @@
 var isJumping = false;
 var posJumping = 0;
-var jumpList = [30, 30, 20, 20, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -10, -20, -20, -20, -30, -30];
-var value
+var jumpList = [
+  30,
+  30,
+  20,
+  20,
+  20,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -20,
+  -20,
+  -20,
+  -30,
+  -30
+];
+var value;
 x = 120;
 y = 120;
 x_obst = 1268;
@@ -20,22 +53,24 @@ x_bg2 = 1286;
 w_bg2 = 1422;
 
 // ENTER GAME
-oxo.inputs.listenKeyOnce("enter", function () {
-  oxo.screens.loadScreen("game", function () {
-    var character = document.querySelector('.player');
-    var ennemy = document.querySelector('.obstacle1');
-    var affichageScore = document.querySelector('.affichageScore');
+oxo.inputs.listenKeyOnce("enter", function() {
+  oxo.screens.loadScreen("game", function() {
+    var character = document.querySelector(".player");
+    var ennemy = document.querySelector(".obstacle1");
+    var affichageScore = document.querySelector(".affichageScore");
 
     //Score
     value = 0;
-    setInterval(function () {
+    setInterval(function() {
       value++;
-      var inGameScore = document.querySelector('.affichageScore__game');
+      var inGameScore = document.querySelector(".affichageScore__game");
       inGameScore.innerHTML = value;
+
 
     },
       1000
     );
+
 
     affichageScore.innerHTML = value;
 
@@ -56,6 +91,7 @@ oxo.inputs.listenKeyOnce("enter", function () {
     }, 50);
 
     //Collision
+
     oxo.elements.onCollisionWithElement(character, ennemy, function () {
       oxo.screens.loadScreen("end", function () {
         var affichageScore = document.querySelector('.affichageScore');
@@ -69,18 +105,22 @@ oxo.inputs.listenKeyOnce("enter", function () {
         home.addEventListener("click", function () {
           oxo.screens.loadScreen("home", function () { });
         });
+
       });
     });
   });
 });
 
+
 oxo.inputs.listenKey("space", function () {
   if (oxo.screens.getCurrentScreen() == "game") {
     if (!isJumping) {
       isJumping = true;
+
     }
   }
 });
+
 
 function placePlayer(x_player, y_player) {
   var d = document.querySelector(".player");
@@ -99,6 +139,7 @@ setInterval(function doGame() {
     if (posJumping == jumpList.length) {
       isJumping = false;
       posJumping = 0;
+
     }
   }
   var obst = document.querySelector('.obstacle1');
@@ -110,6 +151,9 @@ setInterval(function doGame() {
   // Parallax
   var foreground1 = document.querySelector('.foreground-1');
   var foreground2 = document.querySelector('.foreground-2');
+
+
+
 
   x_fg1 -= 7 * speed;
   x_fg2 -= 7 * speed;
@@ -137,3 +181,13 @@ setInterval(function doGame() {
   }
   speed += 0.005;
 }, 50);
+
+oxo.screens.loadScreen("home", function() {
+  var btnHowToPlay = document.getElementById("btnHowToPlay");
+  var instructions = document.getElementById("instructions");
+
+  btnHowToPlay.addEventListener("click", function() {
+    instructions.classList.toggle("is-open");
+    console.log("hello");
+  });
+});
