@@ -32,7 +32,7 @@ oxo.inputs.listenKeyOnce("enter", function () {
       value++;
       var inGameScore = document.querySelector('.affichageScore__game');
       inGameScore.innerHTML = value;
-      
+
     },
       1000
     );
@@ -59,7 +59,12 @@ oxo.inputs.listenKeyOnce("enter", function () {
     oxo.elements.onCollisionWithElement(character, ennemy, function () {
       oxo.screens.loadScreen("end", function () {
         var affichageScore = document.querySelector('.affichageScore');
-        affichageScore.innerHTML = value;
+        affichageScore.innerHTML = "Score :" + " " + value;
+        //oxo.inputs.listenKeyOnce("enter", function () {
+        var rejouer = document.querySelector(".end__btn");
+        rejouer.addEventListener("click", function () {
+          oxo.screens.loadScreen("game", function () { });
+        });
       });
     });
   });
@@ -92,7 +97,7 @@ oxo.inputs.listenKeyOnce("enter", function () {
       }
     }
     var obst = document.querySelector('.obstacle1');
-    x_obst -= 10*speed;
+    x_obst -= 10 * speed;
     obst.style.left = x_obst + "px";
     if (x_obst <= -20) {
       x_obst = 1268;
@@ -101,8 +106,8 @@ oxo.inputs.listenKeyOnce("enter", function () {
     var foreground1 = document.querySelector('.foreground-1');
     var foreground2 = document.querySelector('.foreground-2');
 
-    x_fg1 -= 7*speed;
-    x_fg2 -= 7*speed;
+    x_fg1 -= 7 * speed;
+    x_fg2 -= 7 * speed;
     foreground1.style.left = x_fg1 + "px";
     foreground2.style.left = x_fg2 + "px";
     if (x_fg1 <= -1286) {
@@ -115,8 +120,8 @@ oxo.inputs.listenKeyOnce("enter", function () {
     var background1 = document.querySelector('.background-1');
     var background2 = document.querySelector('.background-2');
 
-    x_bg1 -= 3*speed;
-    x_bg2 -= 3*speed;
+    x_bg1 -= 3 * speed;
+    x_bg2 -= 3 * speed;
     background1.style.left = x_bg1 + "px";
     background2.style.left = x_bg2 + "px";
     if (x_bg1 <= -1286) {
