@@ -34,10 +34,43 @@ var jumpList = [
   -30,
   -30
 ];
+ var jumpList2 = [30,
+  30,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  20,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -10,
+  -20,
+  -20,
+  -20,
+  -30,
+  -30];
 var value;
 x = 120;
 y = 120;
 x_obst = 1268;
+x_ptn = 1268;
 speed = 0;
 
 x_fg1 = 0;
@@ -58,6 +91,7 @@ oxo.inputs.listenKeyOnce("enter", function() {
     var character = document.querySelector(".player");
     var ennemy = document.querySelector(".obstacle1");
     var affichageScore = document.querySelector(".affichageScore");
+    potion = document.querySelector(".potion");
 
     //Score
     value = 0;
@@ -91,6 +125,25 @@ oxo.inputs.listenKeyOnce("enter", function() {
     }, 50);
 
     //Collision
+    oxo.elements.onCollisionWithElement(character,potion,function(){
+      potion.classList.add("disapear");
+      var r = jumpList;
+      jumpList = jumpList2;
+      jumpList2 = r;
+      console.log(jumpList,jumpList2);
+
+    });
+
+    /*setInterval(function()
+    {
+      oxo.elements.createElement ({
+      type : "div",
+      class : "potion",
+      appendTo: ".background"
+    })
+    x_ptn -= 10;
+    potion.style.left = x_ptn +"px";
+  },50)*/
 
     oxo.elements.onCollisionWithElement(character, ennemy, function () {
       oxo.screens.loadScreen("end", function () {
@@ -142,6 +195,14 @@ setInterval(function doGame() {
 
     }
   }
+  
+    var ptn = document.querySelector('.potion');
+    x_ptn -= 5 * speed;
+    ptn.style.left = x_ptn +"px";
+    speed += 0.005;
+    if (x_ptn <= -20) {
+      x_ptn = 1268;
+    }
   var obst = document.querySelector('.obstacle1');
   x_obst -= 10 * speed;
   obst.style.left = x_obst + "px";

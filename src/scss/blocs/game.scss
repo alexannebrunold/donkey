@@ -80,7 +80,19 @@
   left: 1286px;
   background-color: white;
 }
+  .potion {
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 300px;
+    left: 1285px;
+    background: green;
 
+    &.disapear {
+    opacity:0;
+
+  }
+}
 //Score
 .affichageScore__game {
   position: absolute;
