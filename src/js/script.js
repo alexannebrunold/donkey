@@ -68,6 +68,7 @@ var jumpList = [
 //   -30,
 //   -30];
 var value;
+
 x = 120;
 y = 120;
 x_obst = 1268;
@@ -96,7 +97,7 @@ function resetValues() {
   value = 0;
   x = 120;
   y = 120;
-  x_obst = 1206;
+  x_obst = 1286;
 
   x_fg1 = 0;
   w_fg1 = 1286;
@@ -126,7 +127,7 @@ oxo.inputs.listenKeyOnce("enter", function startGame() {
   resetValues();
 
   reduceInterval = setInterval(function () {
-    interval_ms -= 0.5;
+    interval_ms -= 0.2;
   }, 500)
 
   oxo.screens.loadScreen("game", function () {
