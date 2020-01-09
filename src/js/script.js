@@ -159,7 +159,8 @@ oxo.screens.loadScreen("home", function () {
   instructionsClose.addEventListener("click", function () {
     instructions.classList.remove("is-open");
   });
-<<<<<<< HEAD
+
+
 
 });
 
@@ -229,6 +230,7 @@ x_obst -= 10 * speed;
   }, 50);
   */
 
-=======
-});
->>>>>>> 2af7b2142df8f8c6ec5c5d2c87813da63169970e
+
+
+
+
