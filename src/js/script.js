@@ -6,7 +6,7 @@ function resetValues() {
   posJumping = 0;
   jumpList = [40, 30, 30, 20, 20, 10, 10, 10, -10, -10, -10, -20, -20, -30, -30, -40];
   value = 0;
-  x = 250;
+  x = 120;
   y = 120;
   x_obst = 1306;
 
@@ -181,8 +181,6 @@ oxo.screens.loadScreen("home", function () {
     instructions.classList.remove("is-open");
   });
 
-
-
 });
 
 /*
@@ -250,8 +248,3 @@ x_obst -= 10 * speed;
 
   }, 50);
   */
-
-
-
-
-
