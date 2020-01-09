@@ -6,7 +6,7 @@ function resetValues() {
   posJumping = 0;
   jumpList = [40,30,30,20,20,10,10,10,-10,-10,-10,-20,-20,-30,-30,-40];
   value = 0;
-  x = 120;
+  x = 250;
   y = 120;
   x_obst = 1268;
 
@@ -159,72 +159,4 @@ oxo.screens.loadScreen("home", function() {
   instructionsClose.addEventListener("click", function() {
     instructions.classList.remove("is-open");
   });
-  
 });
-
-/*
-x_obst -= 10 * speed;
-    obst.style.left = x_obst + "px";
-    speed += 0.005;
-    if (x_obst <= -20) {
-      x_obst = 1268;
-      obst.classList.remove("destroyed");
-
-
-    oxo.inputs.listenKey("enter", function() {
-      let ball = oxo.elements.createElement({
-        class: "ball",
-        appendTo: ".background"
-      });
-
-      oxo.elements.onLeaveScreenOnce(ball, function() {
-        ball.remove();
-      });
-
-      oxo.elements.onCollisionWithElementOnce(ball, obst, function() {
-        obst.classList.add("destroyed");
-      });
-    });
-
-  });
-});
-
-// //Create 3 elements obstacles to generate aleatoirement
-
-// var obstacle1 = oxo.elements.createElement({
-//   type: 'div',
-//   class: 'obstacle1',
-//   obstacle: true,
-//   appendTo: 'game' // optional
-// });
-
-// var obstacle2 = oxo.elements.createElement({
-//   type: 'div',
-//   class: 'obstacle2',
-//   obstacle: true,
-//   appendTo: 'game' // optional
-// });
-
-// var obstacle3 = oxo.elements.createElement({
-//   type: 'div',
-//   class: 'obstacle3',
-//   obstacle: true,
-//   appendTo: 'game' // optional body
-// });
-
-// function shuffle(obstacle2) {
-//   var obstacle1, obstacle2, obstacle3;
-//   for (i = a.length - 1; i > 0; i--) {
-//     obstacle1 = Math.floor(Math.random() * (i + 1));
-//     obstacle2 = a[i];
-//     a[i] = a[obstacle1];
-//     a[obstacle1] = x;
-//   }
-//   return obstacle2;
-// };
-
-// element is appended to the document
-
-  }, 50);
-  */
->
