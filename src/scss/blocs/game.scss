@@ -15,15 +15,13 @@
 
 .player {
   position: absolute;
-  width: 60px;
-  height: 100px;
-  left: 120px;
+  width: 67px;
+  height: 106px;
+  left: 250px;
   bottom: 120px;
-  background: red;
+  //background: red;
+  content: url(../assets/img/character.png)
 }
-
-
-
 
 .foreground-1 {
   position: absolute;
@@ -80,20 +78,23 @@
   color: #000000;
 }
 
+.monster {
+  position: absolute;
+  width: 147px;
+  height: 166px;
+  left: 70px;
+  bottom: 105px;
+  content: url(../assets/img/monster.png)
+}
 //Obstacles
-.obstacle1{
+.obstacle1 {
     position: absolute;
     width: 20px;
     height: 60px;
     left: 1286px;
     bottom: 120px;
-    //background: yellow;
-    //opacity: 0;
-    content: url(../assets/img/obstacle1.png);
-  
-    &.visible {
-      opacity: 1;
-    }
+    background: yellow;
+    //content: url(../assets/img/obstacle1.png);
   }
 
 // .obstacle1{

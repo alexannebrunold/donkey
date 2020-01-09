@@ -10,11 +10,9 @@ body.home {
 }
 
 @font-face {
-  font-family: "Vermin VIbes 1989";
+  font-family: "Vermin Vibes 1989";
 
-  
   src: url("/font/Vermin\ Vibes\ 1989.ttf") format("ttf"),
-
     url("/font/Vermin\ Vibes\ 1989.ttf") format("truetype");
 }
 
@@ -92,8 +90,6 @@ body.home {
   }
 }
 
-
-
 .is-open {
   opacity: 1;
   visibility: visible;
@@ -109,5 +105,5 @@ body.home {
 }
 
 img {
-  max-width: 20px;
+  max-width: 5px;
 }
