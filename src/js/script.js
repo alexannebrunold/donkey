@@ -96,7 +96,7 @@ function resetValues() {
   value = 0;
   x = 120;
   y = 120;
-  x_obst = 1306;
+  x_obst = 1206;
 
   x_fg1 = 0;
   w_fg1 = 1286;
@@ -273,7 +273,7 @@ oxo.inputs.listenKey("space", function () {
 function placePlayer(x_player, y_player) {
   var d = document.querySelector(".player");
   d.style.position = "absolute";
-  d.style.left = x_player + "px";
+  //d.style.left = x_player + "px";
   d.style.bottom = y_player + "px";
 }
 
