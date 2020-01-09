@@ -19,6 +19,7 @@ w_bg1 = 1286;
 x_bg2 = 1286;
 w_bg2 = 1422;
 
+// ENTER GAME
 oxo.inputs.listenKeyOnce("enter", function () {
   oxo.screens.loadScreen("game", function () {
     var character = document.querySelector('.player');
