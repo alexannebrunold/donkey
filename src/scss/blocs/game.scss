@@ -82,11 +82,12 @@
 }
 
 //Score
-.affichageScore__game{
+.affichageScore__game {
   position: absolute;
-  font-size: 35px;
+  font-size: 20px;
   font-family: "Pixeled";
   float: right;
   padding-top: 35px;
-  padding-left: 15px;
+  // padding-left: 35px;
+  left: 35px;
 }
