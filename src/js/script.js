@@ -1,8 +1,22 @@
+function howToPlay() {
+  var instructions = document.getElementById("instructions");
+
+  if (instructions.style.display != "none") {
+    instructions.style.display = "none";
+  } else {
+    instructions.style.display = "block";
+  }
+}
+
+// CODE DU JEU
+
 var isJumping = false;
 var posJumping = 0;
 var jumpList = [44, 22, 11, 11, -11, -11, -22, -44];
 x = 120;
 y = 120;
+
+x_obst = 1268;
 
 oxo.inputs.listenKeyOnce("enter", function() {
   oxo.screens.loadScreen("game");
